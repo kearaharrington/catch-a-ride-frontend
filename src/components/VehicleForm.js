@@ -11,7 +11,7 @@ const Vehicle = (props) => {
     const [year, setYear] = useState('');
     const [user, setUser] = useState('');
 
-setUser(props.user.id);
+setUser(props.user.token);
 
     const handleMake = (e) => {
         setMake(e.target.value);
