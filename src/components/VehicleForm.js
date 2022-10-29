@@ -10,6 +10,7 @@ const Vehicle = (props) => {
     const [seats, setSeats] = useState('');
     const [year, setYear] = useState('');
     const [user, setUser] = useState('');
+    const [redirect, setRedirect] = useState(false);
 
 setUser(props.user.token);
 
