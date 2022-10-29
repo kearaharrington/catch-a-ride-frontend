@@ -31,7 +31,7 @@ const Message = (props) => {
     })
     .catch(error => console.log('===> Error in Messages', error));
    }
-   if (redirect) return <Redirect to="/messages/new" />
+   if (redirect) return <Redirect to="/profile" />
     return (
         <div className="row mt-4">
         <div className="col-md-7 offset-md-3">
