@@ -28,6 +28,7 @@ const Message = (props) => {
         console.log('===> New Message');
         console.log(response);
         history.push(`/message/new`);
+        setRedirect(true);
     })
     .catch(error => console.log('===> Error in Messages', error));
    }
