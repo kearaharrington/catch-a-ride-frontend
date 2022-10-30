@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
-const Message = (props) => {
+const Message = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState(false);
