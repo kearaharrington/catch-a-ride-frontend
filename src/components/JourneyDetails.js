@@ -6,10 +6,11 @@ const { REACT_APP_SERVER_URL } = process.env;
 
 const JourneyDetails = () => {
     const [journey, setJourney] = useState();
-    const id = useParams();
+    const { id } = useParams();
+    console.log(id);
 
-    useEffect(() => {
-        axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`)
+    useEffect(async () => {
+        await axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`)
             .then(response => {
                 console.log(response.data);
                 setJourney(response.data.journey);
@@ -19,13 +20,19 @@ const JourneyDetails = () => {
            });
      }, []);
 
-    return (
-        <div>
-            <h3>{journey.origin} to {journey.destination}</h3>
-            <p>Open Seats: {journey.openSeats}</p>
-            <p>Desired Contribution: {journey.contribution}</p>
-        </div>
-    );
+    if (journey) {
+        return (
+            <div>
+                <h3>{journey.origin} to {journey.destination}</h3>
+                <p>Open Seats: {journey.openSeats}</p>
+                <p>Desired Contribution: {journey.contribution}</p>
+            </div>
+        );
+    } else {
+        return (
+            <h1>Loading...</h1>
+        )
+    }
 }
 
 export default JourneyDetails;

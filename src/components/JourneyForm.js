@@ -36,7 +36,7 @@ const JourneyForm = () => {
             .then(response => {
                 console.log('===> Yay, new journey');
                 console.log(response);
-                history.push(`/journeys/${response.data.journey._id}`)
+                history.push(`/journeys/${response.data}`)
             })
             .catch(error => console.log('===> Error in Journey creation', error));
     }
