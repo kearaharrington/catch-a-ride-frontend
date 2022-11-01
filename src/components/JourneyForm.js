@@ -1,16 +1,16 @@
 // Imports
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
-const Journey = () => {
+const JourneyForm = () => {
     const [origin, setOrigin] = useState('');
     const [destination, setDestination] = useState('');
     const [contribution, setContribution] = useState('');
     const [openSeats, setOpenSeats] = useState('');
-    // const [driverUid, setDriverUid] = useState('');
-    const [redirect, setRedirect] = useState(false);
+    const history = useHistory();
+    // const [redirect, setRedirect] = useState(false);
 
     const handleOrigin = (e) => {
         setOrigin(e.target.value);
@@ -28,10 +28,6 @@ const Journey = () => {
         setOpenSeats(e.target.value);
     }
 
-    // const handleDriverUid = (e) => {
-    //     setDriverUid(e.target.value);
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault(); 
         const newJourney = { origin, destination, contribution, openSeats };
@@ -40,12 +36,10 @@ const Journey = () => {
             .then(response => {
                 console.log('===> Yay, new journey');
                 console.log(response);
-                setRedirect(true);
+                history.push(`/journeys/${response.data.journey._id}`)
             })
             .catch(error => console.log('===> Error in Journey creation', error));
     }
-
-    if (redirect) return <Redirect to="/journeys/new" /> // You can have them redirected to profile (your choice)
 
     return (
         <div className="row mt-4">
@@ -77,4 +71,4 @@ const Journey = () => {
     )
 }
 
-export default Journey;
+export default JourneyForm;
