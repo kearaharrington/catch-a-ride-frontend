@@ -4,7 +4,11 @@ import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
+
 const MessageForm = (props) => {
+  
+const Message = () => {
+  
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -28,10 +32,11 @@ const MessageForm = (props) => {
         console.log('===> New Message');
         console.log(response);
         history.push(`/message/new`);
+        setRedirect(true);
     })
     .catch(error => console.log('===> Error in Messages', error));
    }
-   if (redirect) return <Redirect to="/messages/new" />
+   if (redirect) return <Redirect to="/profile" />
     return (
         <div className="row mt-4">
         <div className="col-md-7 offset-md-3">
