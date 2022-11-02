@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
-   const { id, name, email, exp } = user;
+   const { id, firstName, lastName, birthdate, email, exp } = user;
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -16,8 +16,9 @@ const Profile = (props) => {
    const userData = user ?
    (<div>
        <h1>Profile</h1>
-       <p>Name: {name}</p>
+       <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
+       <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
    </div>) : <h2>Loading...</h2>
 
