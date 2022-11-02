@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import MessageForm from './MessageForm';
+import Messages from './Messages';
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
@@ -20,6 +22,10 @@ const Profile = (props) => {
        <p>Email: {email}</p>
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
+       <div>
+        <MessageForm userId={id}/>
+        <Messages user={id} />
+       </div>
    </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
