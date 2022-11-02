@@ -1,18 +1,15 @@
-// Imports
 import React, { useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+// import JourneyDetails from './JourneyDetails';
 const { REACT_APP_SERVER_URL } = process.env;
 
-const JourneyForm = () => {
-    const [journey, setJourney] = useState({
-        origin: '',
-        destination: '',
-        contribution: '',
-        openSeats: ''
-    });
+const JourneyEdit = () => {
+    const [journey, setJourney] = useState();
+    const { id } = useParams();
     const history = useHistory();
-    // const [redirect, setRedirect] = useState(false);
+
+    console.log(id);
 
     const handleChange = (e) => {
         setJourney({...journey, [e.target.name]: e.target.value})
@@ -20,15 +17,17 @@ const JourneyForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
-        const newJourney = journey;
-        console.log(newJourney);
-        axios.post(`${REACT_APP_SERVER_URL}/journeys/new`, newJourney)
+        const editedJourney = {
+            origin: this.state.origin,
+            destination: this.state.destination,
+            contribution: this.state.contribution,
+            openSeats: this.state.openSeats
+        }
+        axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${id}`, editedJourney)
             .then(response => {
-                console.log('===> Yay, new journey');
-                console.log(response);
-                history.push(`/journeys/${response.data.journey._id}`)
+                history.push(`/journeys/${id}`)
             })
-            .catch(error => console.log('===> Error in Journey creation', error));
+            .catch(error => console.log('===> Error in Journey edit', error));
     };
 
     return (
@@ -39,19 +38,19 @@ const JourneyForm = () => {
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label htmlFor="origin">Leaving From:</label>
-                            <input type="text" name="origin" value={journey.origin} onChange={handleChange} className="form-control"/>
+                            <input type="text" name="origin" value={journey.origin} onChange={handleChange} placeholder={journey.origin} className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="destination">Heading To:</label>
-                            <input type="text" name="destination" value={journey.destination} onChange={handleChange} className="form-control"/>
+                            <input type="text" name="destination" value={journey.destination} onChange={handleChange} placeholder={journey.destination} className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="contribution">$ Contribution:</label>
-                            <input type="number" name="contribution" value={journey.contribution} onChange={handleChange} className="form-control"/>
+                            <input type="number" name="contribution" value={journey.contribution} onChange={handleChange} placeholder={journey.contribution} className="form-control"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="openSeats">Available Seats:</label>
-                            <input type="number" name="openSeats" value={journey.openSeats} onChange={handleChange} className="form-control"/>
+                            <input type="number" name="openSeats" value={journey.openSeats} onChange={handleChange} placeholder={journey.openSeats} className="form-control"/>
                         </div>
                         <button type="submit" className="btn btn-primary float-right">Submit</button>
                     </form>
@@ -61,4 +60,4 @@ const JourneyForm = () => {
     )
 }
 
-export default JourneyForm;
+export default JourneyEdit;
