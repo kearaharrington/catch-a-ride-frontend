@@ -19,6 +19,7 @@ import Vehicle from './components/VehicleForm';
 import JourneyForm from './components/JourneyForm';
 import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
+import JourneyEdit from './components/JourneyEdit';
 // import AllMessages from './components/AllMessages';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
@@ -78,6 +79,7 @@ function App() {
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
           <PrivateRoute path="/journeys/new" component={JourneyForm} user={currentUser}  />
           <PrivateRoute path="/journeys/:id" component={JourneyDetails} user={currentUser}  />
+          <PrivateRoute path="/journeys/edit/:id" component={JourneyEdit} user={currentUser}  />
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
           <Route exact path="/" component={Welcome} />
