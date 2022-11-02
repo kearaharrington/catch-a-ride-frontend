@@ -18,7 +18,7 @@ import Welcome from './components/Welcome';
 import Vehicle from './components/VehicleForm';
 import Journey from './components/JourneyForm';
 import Message from './components/MessageForm';
-import AllMessages from './components/AllMessages';
+import Inbox from './components/Inbox';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -76,8 +76,8 @@ function App() {
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
           <PrivateRoute path="/journeys" component={Journey} user={currentUser}  />
+          <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  />
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
-          <Route exact path="/messages" component={AllMessages} user={currentUser} />
           <Route exact path="/" component={Welcome} />
           <Route path="/about" component={About} />
         </Switch>
