@@ -28,7 +28,7 @@ const Navbar = (props) => {
                                 <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link"  to="/journeys">New Journey</NavLink>
+                                <NavLink className="nav-link"  to="/journeys/new">New Journey</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/messages/user/635af2d66103bc41965b2160">Inbox</NavLink>

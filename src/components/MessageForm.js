@@ -4,7 +4,11 @@ import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
+
+const MessageForm = (props) => {
+  
 const Message = () => {
+  
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState(false);
@@ -56,4 +60,4 @@ const Message = () => {
     )
 }
 
-export default Message;
+export default MessageForm;
