@@ -7,8 +7,6 @@ const { REACT_APP_SERVER_URL } = process.env;
 
 const MessageForm = (props) => {
   
-const Message = () => {
-  
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState(false);
