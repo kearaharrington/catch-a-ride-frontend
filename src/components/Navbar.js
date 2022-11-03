@@ -30,6 +30,9 @@ const Navbar = (props) => {
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/journeys/new">New Journey</NavLink>
                             </li>
+                            <li className="nav-item">
+                                <NavLink className="nav-link"  to="/messages/user/635af2d66103bc41965b2160">Inbox</NavLink>
+                            </li>
                         </ul>
                         : <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
