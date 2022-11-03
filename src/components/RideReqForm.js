@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import setAuthToken from '../utils/setAuthToken';
 const { REACT_APP_SERVER_URL } = process.env;
 
-const JourneyForm = () => {
+const RideReqForm = () => {
     const [journey, setJourney] = useState({
         origin: '',
         destination: '',
@@ -17,7 +17,7 @@ const JourneyForm = () => {
     const [journeyId, setJourneyId] = useState('');
 
     const handleChange = (e) => {
-        setJourney({...journey, [e.target.name]: e.target.value})
+        setJourney({...journey, [e.target.name]: e.target.value })
     };
 
     const handleSubmit = (e) => {
@@ -25,7 +25,7 @@ const JourneyForm = () => {
         const newJourney = journey;
         console.log(newJourney);
         setAuthToken(localStorage.getItem('jwtToken'));
-        axios.post(`${REACT_APP_SERVER_URL}/journeys/new`, newJourney)
+        axios.post(`${REACT_APP_SERVER_URL}/journeys/request`, newJourney)
             .then(response => {
                 console.log('===> Yay, new journey');
                 console.log(response);
@@ -41,7 +41,7 @@ const JourneyForm = () => {
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">
                 <div className="card card-body">
-                    <h2 className="py-2">Post a New Journey!</h2>
+                    <h2 className="py-2">Request a Ride!</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <label htmlFor="date">Departure Date: </label>
@@ -71,4 +71,4 @@ const JourneyForm = () => {
     )
 }
 
-export default JourneyForm;
+export default RideReqForm;
