@@ -17,7 +17,7 @@ const RideReqForm = () => {
     const [journeyId, setJourneyId] = useState('');
 
     const handleChange = (e) => {
-        setJourney({ ...journey, [e.target.name]: e.target.value })
+        setJourney({...journey, [e.target.name]: e.target.value })
     };
 
     const handleSubmit = (e) => {
@@ -41,7 +41,7 @@ const RideReqForm = () => {
         <div className="row mt-4">
             <div className="col-md-7 offset-md-3">
                 <div className="card card-body">
-                    <h2 className="py-2">Post a New Journey!</h2>
+                    <h2 className="py-2">Request a Ride!</h2>
                     <form onSubmit={handleSubmit}>
                         <div className='form-group'>
                             <label htmlFor="date">Departure Date: </label>
