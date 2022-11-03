@@ -24,7 +24,7 @@ const Profile = (props) => {
        <p>ID: {id}</p>
        <div>
         <MessageForm userId={id}/>
-        <Messages user={id} />
+        {/* <Messages user={id} /> */}
        </div>
    </div>) : <h2>Loading...</h2>
 

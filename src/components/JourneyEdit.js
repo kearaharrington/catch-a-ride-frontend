@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
+import setAuthToken from '../utils/setAuthToken';
 // import JourneyDetails from './JourneyDetails';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const JourneyEdit = () => {
     const [journey, setJourney] = useState();
-    const { id } = useParams();
+    // const { id } = useParams();
+    const params = useParams();
     const history = useHistory();
 
-    console.log(id);
+    console.log(params.id);
+
+    useEffect(() => {
+        const fetchJourney = async () => {
+            setAuthToken(localStorage.getItem('jwtToken'));
+            const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/${params.id}`);
+            console.log(result.data);
+            setJourney(result.data.journey);
+        };
+        fetchJourney();
+     }, []);
 
     const handleChange = (e) => {
         setJourney({...journey, [e.target.name]: e.target.value})
@@ -23,9 +35,9 @@ const JourneyEdit = () => {
             contribution: this.state.contribution,
             openSeats: this.state.openSeats
         }
-        axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${id}`, editedJourney)
+        axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${params.id}`, editedJourney)
             .then(response => {
-                history.push(`/journeys/${id}`)
+                history.push(`/journeys/${params.id}`)
             })
             .catch(error => console.log('===> Error in Journey edit', error));
     };
