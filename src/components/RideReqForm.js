@@ -1,7 +1,8 @@
 // Imports
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import setAuthToken from '../utils/setAuthToken';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const RideReqForm = () => {
@@ -12,24 +13,29 @@ const RideReqForm = () => {
         openSeats: '',
         date: ''
     });
-    const history = useHistory();
+    const [redirect, setRedirect] = useState(false);
+    const [journeyId, setJourneyId] = useState('');
 
     const handleChange = (e) => {
         setJourney({ ...journey, [e.target.name]: e.target.value })
     };
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); 
         const newJourney = journey;
         console.log(newJourney);
+        setAuthToken(localStorage.getItem('jwtToken'));
         axios.post(`${REACT_APP_SERVER_URL}/journeys/request`, newJourney)
             .then(response => {
                 console.log('===> Yay, new journey');
                 console.log(response);
-                history.push(`/journeys/${response.data.journey._id}`)
+                setJourneyId(response.data.journey._id);
+                setRedirect(true);
             })
             .catch(error => console.log('===> Error in Journey creation', error));
     };
+
+    if (redirect) return <Redirect to={`/journeys/${journeyId}`} /> // You can have them redirected to profile (your choice)
 
     return (
         <div className="row mt-4">

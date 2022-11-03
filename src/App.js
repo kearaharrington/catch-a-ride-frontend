@@ -16,7 +16,7 @@ import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 import Welcome from './components/Welcome';
 import Vehicle from './components/VehicleForm';
-import JourneyForm from './components/JourneyForm';
+import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
 import JourneyEdit from './components/JourneyEdit';
@@ -77,7 +77,7 @@ function App() {
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
-          <PrivateRoute path="/journeys/new" component={JourneyForm} user={currentUser}  />
+          <PrivateRoute path="/journeys/new" component={JourneyOrRideForm} user={currentUser}  />
           <PrivateRoute path="/journeys/:id" component={JourneyDetails} user={currentUser}  />
           <PrivateRoute path="/journeys/edit/:id" component={JourneyEdit} user={currentUser}  />
           <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  />
