@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MessageForm from './MessageForm';
-import Messages from './Messages';
+
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
-   const { id, firstName, lastName, birthdate, email, exp } = user;
+   const { id, firstName, lastName, birthdate, email, exp, messages } = user;
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
+   console.log("User Data:    ",user);
+   console.log("Messages:    ",messages);
+   
 
    // make a condition that compares exp and current time
    if (currentTime >= expirationTime) {
@@ -22,9 +25,9 @@ const Profile = (props) => {
        <p>Email: {email}</p>
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
+       <p>Messages: {messages}</p>
        <div>
         <MessageForm userId={id}/>
-        {/* <Messages user={id} /> */}
        </div>
    </div>) : <h2>Loading...</h2>
 

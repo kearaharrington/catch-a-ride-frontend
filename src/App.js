@@ -20,7 +20,7 @@ import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
 import JourneyEdit from './components/JourneyEdit';
-// import Inbox from './components/Inbox';
+import Inbox from './components/Inbox';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -88,6 +88,7 @@ function App() {
         </Switch>
       </div>
       <Footer />
+      <script src="https://maps.googleapis.com/maps/api/js?key=<INSERT-API-KEY-HERE>&libraries=places&callback=initMap"async></script>
     </div>
     </Router>
   );
