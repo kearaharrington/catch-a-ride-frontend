@@ -14,7 +14,7 @@ const JourneyOrRideForm = () => {
         <div>
             {driver}
             <div className='form-group'>
-                <select class="custom-select" onChange={handleChange}>
+                <select className="custom-select" onChange={handleChange}>
                     <option>Driver</option>
                     <option>Passenger</option>
                 </select>
