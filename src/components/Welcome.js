@@ -73,7 +73,8 @@ export class MapContainer extends Component {
               <input
                 {...getInputProps({
                   placeholder: 'Origin',
-                  className: 'location-search-input',
+                  className: 'location-search-input1',
+                  id: "location"
                 })}
               />
               <div className="autocomplete-dropdown-container">
