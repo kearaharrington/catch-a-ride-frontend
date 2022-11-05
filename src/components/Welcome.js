@@ -10,7 +10,8 @@ export class MapContainer extends Component {
     super(props);
     this.state = {
       // for google map places autocomplete
-      address: '',
+      origin: '',
+      destination: '',
 
       showingInfoWindow: false,
       activeMarker: {},
@@ -23,13 +24,30 @@ export class MapContainer extends Component {
     };
   }
 
-  handleChange = address => {
-    this.setState({ address });
+  handleChange = origin => {
+    this.setState({ origin });
+  };
+
+  handleChanged = destination => {
+    this.setState({ destination });
   };
  
-  handleSelect = address => {
-    this.setState({ address });
-    geocodeByAddress(address)
+  handleSelect = origin => {
+    this.setState({ origin });
+    geocodeByAddress(origin)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        console.log('Success', latLng);
+
+        // update center state
+        this.setState({ mapCenter: latLng });
+      })
+      .catch(error => console.error('Error', error));
+  };
+   
+  handleSelected = destination => {
+    this.setState({ destination });
+    geocodeByAddress(destination)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
         console.log('Success', latLng);
@@ -42,9 +60,11 @@ export class MapContainer extends Component {
  
   render() {
     return (
-      <div id='googleMaps'>
+        <div className='google'>
+
+      <div id='googleMaps' className='googleMaps'>
         <PlacesAutocomplete
-          value={this.state.address}
+          value={this.state.origin}
           onChange={this.handleChange}
           onSelect={this.handleSelect}
         >
@@ -52,7 +72,7 @@ export class MapContainer extends Component {
             <div>
               <input
                 {...getInputProps({
-                  placeholder: 'Search Places ...',
+                  placeholder: 'Origin',
                   className: 'location-search-input',
                 })}
               />
@@ -81,6 +101,44 @@ export class MapContainer extends Component {
             </div>
           )}
         </PlacesAutocomplete>
+        <PlacesAutocomplete
+          value={this.state.destination}
+          onChange={this.handleChanged}
+          onSelect={this.handleSelected}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: 'Destination',
+                  className: 'location-search-input',
+                })}
+              />
+              <div className="autocomplete-dropdown-container2">
+                {loading && <div>Loading...</div>}
+                {suggestions.map(suggestion => {
+                  const className = suggestion.active
+                    ? 'suggestion-item--active'
+                    : 'suggestion-item';
+                  const style = suggestion.active
+                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+
 
         <Map 
           google={this.props.google}
@@ -100,6 +158,7 @@ export class MapContainer extends Component {
             }} />
         </Map>
       </div>
+        </div>
     )
   }
 }
