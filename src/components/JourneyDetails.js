@@ -27,7 +27,7 @@ const JourneyDetails = () => {
     useEffect(() => {
         const fetchJourney = async () => {
             setAuthToken(localStorage.getItem('jwtToken'));
-            const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`);
+            const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/show/${id}`);
             console.log(result.data);
             setJourney(result.data.journey);
         };
@@ -38,7 +38,7 @@ const JourneyDetails = () => {
         setRedirect(true);
      }
 
-    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`} /> // You can have them redirected to profile (your choice)
+    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`} id={journey._id} journey={journey} setJourney={setJourney}/> // You can have them redirected to profile (your choice)
 
 
     if (journey) {

@@ -2,28 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
+import DisplayPassengers from './DisplayPassengers';
 // import JourneyDetails from './JourneyDetails';
 const { REACT_APP_SERVER_URL } = process.env;
 
-const JourneyEdit = () => {
-    const [journey, setJourney] = useState();
-    // const { id } = useParams();
-    const params = useParams();
+const JourneyEdit = (props) => {
+    // const [journey, setJourney] = useState();
+    const { id, journey, setJourney } = props;
+    // const params = useParams();
     const history = useHistory();
 
-    console.log(params.id);
+    console.log(id);
 
-    useEffect(() => {
-        const fetchJourney = async () => {
-            setAuthToken(localStorage.getItem('jwtToken'));
-            const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/${params.id}`);
-            console.log(result.data);
-            setJourney(result.data.journey);
-        };
-        fetchJourney();
-     }, []);
+    // useEffect(() => {
+    //     const fetchJourney = async () => {
+    //         setAuthToken(localStorage.getItem('jwtToken'));
+    //         const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`);
+    //         console.log(result.data);
+    //         setJourney(result.data.journey);
+    //     };
+    //     fetchJourney();
+    //  }, []);
 
     const handleChange = (e) => {
+        e.preventDefault();
         setJourney({...journey, [e.target.name]: e.target.value})
     };
 
@@ -35,9 +37,9 @@ const JourneyEdit = () => {
             contribution: this.state.contribution,
             openSeats: this.state.openSeats
         }
-        axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${params.id}`, editedJourney)
+        axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${id}`, editedJourney)
             .then(response => {
-                history.push(`/journeys/${params.id}`)
+                history.push(`/journeys/${id}`)
             })
             .catch(error => console.log('===> Error in Journey edit', error));
     };
@@ -66,6 +68,9 @@ const JourneyEdit = () => {
                         </div>
                         <button type="submit" className="btn btn-primary float-right">Submit</button>
                     </form>
+                </div>
+                <div>
+                    <DisplayPassengers id = {id}/>
                 </div>
             </div>
         </div>
