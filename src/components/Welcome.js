@@ -12,6 +12,8 @@ export class MapContainer extends Component {
       // for google map places autocomplete
       origin: '',
       destination: '',
+      start: '',
+      end: '',
 
       showingInfoWindow: false,
       activeMarker: {},
@@ -26,14 +28,17 @@ export class MapContainer extends Component {
 
   handleChange = origin => {
     this.setState({ origin });
+    this.setState({ start });
   };
 
   handleChanged = destination => {
     this.setState({ destination });
+    this.setState({ end });
   };
  
   handleSelect = origin => {
     this.setState({ origin });
+    this.setState({ start });
     geocodeByAddress(origin)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
@@ -47,6 +52,7 @@ export class MapContainer extends Component {
    
   handleSelected = destination => {
     this.setState({ destination });
+    this.setState({ end });
     geocodeByAddress(destination)
       .then(results => getLatLng(results[0]))
       .then(latLng => {
@@ -160,6 +166,7 @@ export class MapContainer extends Component {
       </div>
         </div>
     )
+    console.log(start, end);
   }
 }
 

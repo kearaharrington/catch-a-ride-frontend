@@ -88,7 +88,7 @@ function App() {
         </Switch>
       </div>
       <Footer />
-      <script src="https://maps.googleapis.com/maps/api/js?key=<INSERT-API-KEY-HERE>&libraries=places&callback=initMap"async></script>
+
     </div>
     </Router>
   );
