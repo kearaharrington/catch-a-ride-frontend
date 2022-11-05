@@ -35,7 +35,7 @@ const JourneyForm = () => {
             .catch(error => console.log('===> Error in Journey creation', error));
     };
 
-    if (redirect) return <Redirect to={`/journeys/${journeyId}`} /> // You can have them redirected to profile (your choice)
+    if (redirect) return <Redirect to={`/journeys/show/${journeyId}`} /> // You can have them redirected to profile (your choice)
 
     return (
         <div className="row mt-4">
