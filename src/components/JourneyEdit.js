@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
-import DisplayPassengers from './DisplayPassengers';
+// import DisplayPassengers from './DisplayPassengers';
 // import JourneyDetails from './JourneyDetails';
 const { REACT_APP_SERVER_URL } = process.env;
 
 const JourneyEdit = () => {
-    const [journey, setJourney] = useState();
+    const [journey, setJourney] = useState({        
+        origin: '',
+        destination: '',
+        contribution: '',
+        openSeats: ''
+        // date: ''
+    });
     // const { id, journey, setJourney } = props;
     const { id } = useParams();
-    const history = useHistory();
+    // const history = useHistory();
     // const { origin } = props.origin;
+    const [redirect, setRedirect] = useState(false);
 
     console.log(id);
-    console.log(journey);
+    // console.log(journey);
 
     useEffect(() => {
         const fetchJourney = async () => {
@@ -29,30 +36,34 @@ const JourneyEdit = () => {
 
     const handleChange = (e) => {
         e.preventDefault();
-        // setJourney({...journey, [e.target.name]: e.target.value})
+        setJourney({...journey, [e.target.name]: e.target.value})
     };
 
     const handleSubmit = (e) => {
+        const { origin, destination, contribution, openSeats } = journey;
         e.preventDefault(); 
         const editedJourney = {
-            origin: this.state.origin,
-            destination: this.state.destination,
-            contribution: this.state.contribution,
-            openSeats: this.state.openSeats
+            origin: origin,
+            destination: destination,
+            contribution: contribution,
+            openSeats: openSeats
         }
         axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${id}`, editedJourney)
             .then(response => {
-                history.push(`/journeys/${id}`)
+                // history.push(`journeys/show/${id}`)
+                setRedirect(true);
             })
             .catch(error => console.log('===> Error in Journey edit', error));
     };
+
+    if (redirect) return <Redirect to={`/journeys/show/${id}`} /> // You can have them redirected to profile (your choice)
 
     if (journey) {
         return (
             <div className="row mt-4">
                 <div className="col-md-7 offset-md-3">
                     <div className="card card-body">
-                        <h2 className="py-2">Post a New Journey!</h2>
+                        <h2 className="py-2">Edit Journey Details:</h2>
                         <form onSubmit={handleSubmit}>
                             <div className="form-group">
                                 <label htmlFor="origin">Leaving From:</label>
@@ -74,10 +85,14 @@ const JourneyEdit = () => {
                         </form>
                     </div>
                     <div>
-                        <DisplayPassengers id = {id}/>
+                        {/* <DisplayPassengers id = {id}/> */}
                     </div>
                 </div>
             </div>
+        );
+    } else {
+        return (
+            <h1>Loading...</h1>
         )
     }
 }
