@@ -16,3 +16,13 @@ body {
 .signup{
   background-color: rgba(20, 32, 100, 0.5);
 }
+
+#GoogleMaps{
+  width: 30px;
+  height: 50px;
+}
+
+.googleMaps{
+  width: 30px;
+  height: 50px;
+}

@@ -1,131 +1,168 @@
-import React, { useState, useRef } from 'react'
-// import {
-//   Box,
-//   Button,
-//   ButtonGroup,
-//   Flex,
-//   HStack,
-//   IconButton,
-//   Input,
-//   SkeletonText,
-//   Text,
-// } from '@chakra-ui/react'
-import { GoogleMap, 
-        useLoadScript, 
-        useJsApiLoader,
-        Autocomplete,
-        DirectionsRenderer,
-        DistanceMatrixService
-        } from '@react-google-maps/api';
+import React, { Component } from 'react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
+import PlacesAutocomplete, {
+  geocodeByAddress,
+  getLatLng,
+} from 'react-places-autocomplete';
 
+export class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      // for google map places autocomplete
+      origin: '',
+      destination: '',
 
-const { NEXT_PUBLIC_GOOGLE_MAPS_API_KEY } = process.env;
-
-const containerStyle = {
-  width: '400px',
-  height: '400px'
-};
-
-const center = {
-  lat: -3.745,
-  lng: -38.523
-};
-
-function MyComponent() {
-
-    const [map, setMap] = useState(/** @type google.maps.Map */ (null))
-    const [directionsResponse, setDirectionsResponse] = useState(null)
-    const [distance, setDistance] = useState('')
-    const [duration, setDuration] = useState('')
-
-
-
-  const originRef = useRef()
-  const destinationRef = useRef()
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
   
-  async function calculateRoute() {
-    if (originRef.current.value === '' || destinationRef.current.value === '') {
-      return
-    }
-    const directionsService = new google.maps.DirectionsService()
-    const results = await directionsService.route({
-      origin: originRef.current.value,
-      destination: destinationRef.current.value,
-    //   travelMode: google.maps.TravelMode.DRIVING,
-    })
-    setDirectionsResponse(results)
-    setDistance(results.routes[0].legs[0].distance.text)
-    setDuration(results.routes[0].legs[0].duration.text)
+      mapCenter: {
+        lat: 49.2827291,
+        lng: -123.1207375
+      }
+    };
   }
 
+  handleChange = origin => {
+    this.setState({ origin });
+  };
 
-    function clearRoute() {
-    setDirectionsResponse(null)
-    setDistance('')
-    setDuration('')
-    originRef.current.value = ''
-    destinationRef.current.value = ''
-  }
-
-  function onLoad (autocomplete) {
-    console.log('autocomplete: ', autocomplete)
-
-    this.autocomplete = autocomplete
-  }
-
-   function onPlaceChanged () {
-    if (this.autocomplete !== null) {
-      console.log(this.autocomplete.getPlace())
-    } else {
-      console.log('Autocomplete is not loaded yet!')
-    }
-  }
-
-  const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: "AIzaSyBXJf6sxZQ2XT882KUJYqVh1qfxiyZSGkg" // ,
-    // ...otherOptions
-  })
-
-  function RenderMap(){
-    const onMapLoad = React.useCallback(
-        function onMapLoad (mapInstance) {
-            return center;
-          // do something with map Instance
-        }
-      )
-    return (
-        <div className='mapContainer'>
-        <div className='controls'>
-            <h1> Search Map </h1>
-            <input placeholder='Type Origin'></input>
-            <input placeholder='Type Destination'></input>
-            <button type='submit'>Search</button>
-        </div>
-        <div className='map'>
-          <GoogleMap
-            onLoad={onMapLoad}
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={10}
-            options={{
-                streetViewControl: false,
-                fullscreenControl: false,
-              }}
-          >
-            { /* Child components, such as markers, info windows, etc. */ }
-          {/* <Box flexGrow={1}> */}
-                <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
-                  <input type='text' placeholder='Origin' />
-                </Autocomplete>
-              {/* </Box> */}
-          </GoogleMap>
-      
-        </div>
-        </div>
-      )
-  }
-  RenderMap();
+  handleChanged = destination => {
+    this.setState({ destination });
+  };
  
+  handleSelect = origin => {
+    this.setState({ origin });
+    geocodeByAddress(origin)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        console.log('Success', latLng);
+
+        // update center state
+        this.setState({ mapCenter: latLng });
+      })
+      .catch(error => console.error('Error', error));
+  };
+   
+  handleSelected = destination => {
+    this.setState({ destination });
+    geocodeByAddress(destination)
+      .then(results => getLatLng(results[0]))
+      .then(latLng => {
+        console.log('Success', latLng);
+
+        // update center state
+        this.setState({ mapCenter: latLng });
+      })
+      .catch(error => console.error('Error', error));
+  };
+ 
+  render() {
+    return (
+        <div className='google'>
+
+      <div id='googleMaps' className='googleMaps'>
+        <PlacesAutocomplete
+          value={this.state.origin}
+          onChange={this.handleChange}
+          onSelect={this.handleSelect}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: 'Origin',
+                  className: 'location-search-input',
+                })}
+              />
+              <div className="autocomplete-dropdown-container">
+                {loading && <div>Loading...</div>}
+                {suggestions.map(suggestion => {
+                  const className = suggestion.active
+                    ? 'suggestion-item--active'
+                    : 'suggestion-item';
+                  // inline style for demonstration purpose
+                  const style = suggestion.active
+                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+        <PlacesAutocomplete
+          value={this.state.destination}
+          onChange={this.handleChanged}
+          onSelect={this.handleSelected}
+        >
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div>
+              <input
+                {...getInputProps({
+                  placeholder: 'Destination',
+                  className: 'location-search-input',
+                })}
+              />
+              <div className="autocomplete-dropdown-container2">
+                {loading && <div>Loading...</div>}
+                {suggestions.map(suggestion => {
+                  const className = suggestion.active
+                    ? 'suggestion-item--active'
+                    : 'suggestion-item';
+                  const style = suggestion.active
+                    ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                    : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                  return (
+                    <div
+                      {...getSuggestionItemProps(suggestion, {
+                        className,
+                        style,
+                      })}
+                    >
+                      <span>{suggestion.description}</span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </PlacesAutocomplete>
+
+
+        <Map 
+          google={this.props.google}
+          initialCenter={{
+            lat: this.state.mapCenter.lat,
+            lng: this.state.mapCenter.lng
+          }}
+          center={{
+            lat: this.state.mapCenter.lat,
+            lng: this.state.mapCenter.lng
+          }}
+        >
+          <Marker 
+            position={{
+              lat: this.state.mapCenter.lat,
+              lng: this.state.mapCenter.lng
+            }} />
+        </Map>
+      </div>
+        </div>
+    )
+  }
 }
 
-export default React.memo(MyComponent)
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyC9k9n174iTsmUe5bdFBWmRxwHvAJzFdUQ')
+})(MapContainer)
