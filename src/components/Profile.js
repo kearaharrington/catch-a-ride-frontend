@@ -5,7 +5,7 @@ import Messages from './Messages';
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
-   const { id, firstName, lastName, birthdate, email, exp } = user;
+   const { id, firstName, lastName, birthdate, email, exp, vehicle } = user;
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -25,6 +25,7 @@ const Profile = (props) => {
        <div>
         {/* <MessageForm userId={id}/> */}
         {/* <Messages user={id} /> */}
+        <h2>Vehicle: {vehicle}</h2>
        </div>
    </div>) : <h2>Loading...</h2>
 
