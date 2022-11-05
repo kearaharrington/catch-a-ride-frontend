@@ -22,7 +22,7 @@ function Messages(props) {
     })
     console.log('BEFORE', messageBoard);
 
-    if (messageBoard.length < 1) messageBoard.push('No Messages yet...')
+    if (messageBoard.length < 1) messageBoard.push('No Messages...')
 
     console.log('AFTER', messageBoard);
   
