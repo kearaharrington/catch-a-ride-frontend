@@ -38,7 +38,7 @@ const JourneyDetails = () => {
         setRedirect(true);
      }
 
-    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`} id={journey._id} journey={journey} setJourney={setJourney}/> // You can have them redirected to profile (your choice)
+    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`}/> // You can have them redirected to profile (your choice)
 
 
     if (journey) {
