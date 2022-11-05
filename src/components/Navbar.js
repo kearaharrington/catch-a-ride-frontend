@@ -33,6 +33,9 @@ const Navbar = (props) => {
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/messages/user/635af2d66103bc41965b2160">Inbox</NavLink>
                             </li>
+                            <li>
+                            <NavLink className="nav-link"  to="/vehicle">Add Vehicle</NavLink>
+                            </li>
                         </ul>
                         : <ul className="navbar-nav ml-auto">
                             <li className="nav-item">

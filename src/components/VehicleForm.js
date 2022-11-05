@@ -2,18 +2,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
-const { REACT_APP_SERVER_URL } = process.env;
+
+
+const { REACT_APP_SERVER_URL } = process.env
+
+const {REACT_APP_API_KEY} = process.env
+
+
 
 const Vehicle = (props) => {
     const [make, setMake] = useState('');
     const [model, setModel] = useState('');
     const [seats, setSeats] = useState('');
     const [year, setYear] = useState('');
-    const [user, setUser] = useState('');
+    const [results, setResults] = useState('');
+    //const [user, setUser] = useState('');
     const [redirect, setRedirect] = useState(false);
 
-setUser(props.user.token);
-
+    const user = props.user.id;
     const handleMake = (e) => {
         setMake(e.target.value);
     }
@@ -29,18 +35,49 @@ setUser(props.user.token);
     const handleYear = (e) => {
         setYear(e.target.value);
     }
+    //https://{cdn-instance}.imagin.studio/{api-name}?customer={customer-key}&{query parameters}
+    // componentDidMount() {
+    //     fetch("https://cdn.imagin.studio/getImage?&customer=usalejandromorenocompany&make=audi&modelFamily=a6&modelRange=a6&modelVariant=sa&modelYear=2014&powerTrain=petrol&transmission=0&bodySize=4&trim=0&paintId=pspc0004&angle=01")
+    //         .then((res) => res.json())
+    //         .then((json) => {
+    //             this.setState({
+    //                 items: json,
+    //                 DataisLoaded: true
+    //             });
+    //         })
+    // };
 
-   function handleSubmit() {
+    // axios.get(`https://cdn.imagin.studio/getImage?&customer=${REACT_APP_API_KEY}&make=${make}&modelFamily=${model}&modelYear=${year}&trim=0&paintId=pspc0004&angle=01`)
+    // .then(response =>{
+    //   console.log('Vehicle API response', response.config.url);
+    //   console.log(process.env)
+    //   setResults(response.config.url);
+    // })
+    // .catch(error => console.log('ERROR', error));
+
+    function handleTypeAhead(e){
+        e.preventDefault()
+        axios.get(`https://cdn.imagin.studio/getImage?&customer=${REACT_APP_API_KEY}&make=${make}&modelFamily=${model}&modelYear=${year}&trim=0&paintId=pspc0004&angle=01`)
+        .then(response =>{
+          console.log('Vehicle API response', response.config.url);
+          console.log(process.env)
+          setResults(response.config.url);
+        })
+        .catch(error => console.log('ERROR', error));
+    }
+
+    function handleSubmit(e) {
+    e.preventDefault()
     const newVehicle = {make, model, seats, year, user}
-    axios.post(`${REACT_APP_SERVER_URL}/vehicle/register`, newVehicle)
+    axios.post(`${REACT_APP_SERVER_URL}/vehicles/new`, newVehicle)
     .then(response => {
-        console.log('===> Yay, new user');
+        console.log('===> Yay, new vehicle');
         console.log(response);
         setRedirect(true);
     })
-    .catch(error => console.log('===> Error in Signup', error));
+    .catch(error => console.log('===> Error in creating vehicle', error));
    }
-   if (redirect) return <Redirect to="/profile" />
+   if (redirect) return <Redirect to="/profile"/>
     return (
         <div className="row mt-4">
         <div className="col-md-7 offset-md-3">
@@ -48,24 +85,25 @@ setUser(props.user.token);
                 <h2 className="py-2">Add Vehicle</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
-                        <label htmlFor="name">Name</label>
-                        <input type="text" name="make" value={make} onChange={handleMake} className="form-control"/>
+                        <label htmlFor="name">Make</label>
+                        <input type="text" name="make" value={make} onBlur={handleTypeAhead} onChange={handleMake} className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="model">Model</label>
-                        <input type="text" name="model" value={model} onChange={handleModel} className="form-control"/>
+                        <input type="text" name="model" value={model} onBlur={handleTypeAhead} onChange={handleModel} className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="seats">Seats</label>
-                        <input type="number" name="seats" value={seats} onChange={handleSeats} className="form-control"/>
+                        <input type="number" name="seats" value={seats} onBlur={handleTypeAhead} onChange={handleSeats} className="form-control"/>
                     </div>
                     <div className="form-group">
                         <label htmlFor="year">Year</label>
-                        <input type="number" name="year" value={year} onChange={handleYear} className="form-control"/>
+                        <input type="number" name="year" value={year} onBlur={handleTypeAhead} onChange={handleYear} className="form-control"/>
                     </div>
                     <button type="submit" className="btn btn-primary float-right">Submit</button>
                 </form>
             </div>
+            <div><img src={results} alt="" /></div>
         </div>
     </div>
 

@@ -59,5 +59,6 @@ const Message = () => {
 
     )
 }
+}
 
 export default MessageForm;

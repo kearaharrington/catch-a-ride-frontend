@@ -21,7 +21,7 @@ import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
 //import AllMessages from './components/AllMessages';
 import JourneyEdit from './components/JourneyEdit';
-// import Inbox from './components/Inbox';
+import Inbox from './components/Inbox';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
