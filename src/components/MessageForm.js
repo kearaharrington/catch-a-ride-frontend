@@ -6,6 +6,7 @@ const { REACT_APP_SERVER_URL } = process.env;
 
 
 const MessageForm = (props) => {
+
   
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');

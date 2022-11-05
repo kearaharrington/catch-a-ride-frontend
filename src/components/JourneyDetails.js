@@ -25,21 +25,15 @@ const JourneyDetails = () => {
     //  }, []);
 
     useEffect(() => {
-        const fetchJourney = async () => {
-            setAuthToken(localStorage.getItem('jwtToken'));
-            const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`);
-            console.log(result.data);
-            setJourney(result.data.journey);
-        };
-        fetchJourney();
-     }, []);
-
-     const navEdit = (e) => {
-        setRedirect(true);
-     }
-
-    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`} /> // You can have them redirected to profile (your choice)
-
+        axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`)
+            .then(response => {
+                console.log(response.data);
+                setJourney(response.data.journey);
+           })
+           .catch((err) => {
+              console.log(err.message);
+           });
+     });
 
     if (journey) {
         return (
