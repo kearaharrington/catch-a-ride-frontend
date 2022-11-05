@@ -88,12 +88,7 @@ function App() {
         </Switch>
       </div>
       <Footer />
-<<<<<<< HEAD
-   </div>
-=======
-
-    </div>
->>>>>>> be9723ba2bce8fab398f55af19bf107225c0b2de
+      </div>
     </Router>
   );
 }

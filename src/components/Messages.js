@@ -3,11 +3,22 @@ import axios from 'axios';
 const { REACT_APP_SERVER_URL } = process.env;
 
 
-function Messages(props) { 
-    console.log(props.arr)
 
+function Messages() { 
+    const [msg, setMsg] = useState(null);
+    useEffect(() => {
+        axios.get(`${REACT_APP_SERVER_URL}/messages/user/635a1047f55e172dca4dc386`)
+        .then(msgs => {
+            if (msgs.data.lenght) {
+                setMsg(msgs.data);
+            }else {
+                setMsg('error');
+            }
+            
+        })
+    }, [])
 
-    const messageBoard = props.arr.map((m, idx) => {
+    const messageBoard = msg.map((m, idx) => {
 
         return (
             <div id={idx}>
@@ -20,6 +31,7 @@ function Messages(props) {
             </div>
         )
     })
+
     console.log('BEFORE', messageBoard);
 
     if (messageBoard.length < 1) messageBoard.push('No Messages...')
@@ -31,7 +43,7 @@ function Messages(props) {
         <div>
             <h3>Messages:</h3>
             
-            {messageBoard}
+    {messageBoard}
         </div>
         
     ) 
