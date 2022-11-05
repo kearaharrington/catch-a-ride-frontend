@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-document.getElementById
 // CSS
 import './App.css';
 
@@ -14,7 +13,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
-import Welcome from './components/Welcome';
+import GoogleApiWrapper from './components/Welcome';
 import Vehicle from './components/VehicleForm';
 import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
@@ -83,7 +82,7 @@ function App() {
           {/* <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  /> */}
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/" component={GoogleApiWrapper} />
           <Route path="/about" component={About} />
         </Switch>
       </div>

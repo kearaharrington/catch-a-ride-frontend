@@ -60,9 +60,13 @@ export class MapContainer extends Component {
  
   render() {
     return (
-        <div className='google'>
-
+      
       <div id='googleMaps' className='googleMaps'>
+        <div className='google'
+              style={{
+                height: '20%',
+                width: '20%'
+              }}>
         <PlacesAutocomplete
           value={this.state.origin}
           onChange={this.handleChange}
@@ -74,7 +78,7 @@ export class MapContainer extends Component {
                 {...getInputProps({
                   placeholder: 'Origin',
                   className: 'location-search-input1',
-                  id: "location"
+                  id: "origin"
                 })}
               />
               <div className="autocomplete-dropdown-container">
@@ -113,6 +117,7 @@ export class MapContainer extends Component {
                 {...getInputProps({
                   placeholder: 'Destination',
                   className: 'location-search-input',
+                  id: "destination"
                 })}
               />
               <div className="autocomplete-dropdown-container2">
