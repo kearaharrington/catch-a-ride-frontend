@@ -28,8 +28,8 @@ const JourneyForm = () => {
         axios.post(`${REACT_APP_SERVER_URL}/journeys/new`, newJourney)
             .then(response => {
                 console.log('===> Yay, new journey');
-                console.log(response);
-                setJourneyId(response.data.journey._id);
+                console.log(response.data);
+                setJourneyId(response.data._id);
                 setRedirect(true);
             })
             .catch(error => console.log('===> Error in Journey creation', error));
