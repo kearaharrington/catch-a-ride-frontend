@@ -16,7 +16,7 @@ axios.get(`${REACT_APP_SERVER_URL}/profile`)
 const Profile = (props) => {
    const { handleLogout, user } = props;
 
-   const { id, firstName, lastName, birthdate, email, exp} = user;
+   const { id, firstName, lastName, birthdate, email, exp, messages } = user;
    const [reviewsArr, setReviewsArr] = useState([]);
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
@@ -30,11 +30,7 @@ const Profile = (props) => {
     });
   }, []);
 
-   const { id, firstName, lastName, birthdate, email, exp, messages } = user;
-   const expirationTime = new Date(exp * 1000);
-   let currentTime = Date.now();
-   console.log("User Data:    ",user);
-   console.log("Messages:    ",messages);
+
 
    // make a condition that compares exp and current time
    if (currentTime >= expirationTime) {
