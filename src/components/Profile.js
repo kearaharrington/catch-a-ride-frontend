@@ -51,6 +51,7 @@ const Profile = (props) => {
 
         <Messages arr={reviewsArr} />
         
+        
 
        </div>
    </div>) : <h2>Loading...</h2>
