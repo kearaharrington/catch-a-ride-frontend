@@ -6,15 +6,16 @@ import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
 const { REACT_APP_SERVER_URL } = process.env;
 
-axios.get(`${REACT_APP_SERVER_URL}/profile`)
-.then(res => {
-    console.log(res.data);
-    // setReviewsArr(res.data);
-})
+// axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
+// .then(res => {
+//     console.log(res.data);
+//     // setReviewsArr(res.data);
+// })
 
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
+
 
    const { id, firstName, lastName, birthdate, email, exp, messages } = user;
    const [reviewsArr, setReviewsArr] = useState([]);
