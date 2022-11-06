@@ -13,6 +13,7 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
+import VisitProfile from './components/VisitProfile';
 import GoogleApiWrapper from './components/Welcome';
 import Vehicle from './components/VehicleForm';
 import JourneyOrRideForm from './components/JourneyOrRideReq';
@@ -76,6 +77,8 @@ function App() {
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
+
+          <PrivateRoute path="/visit/:idx" component={VisitProfile} oguser={currentUser} handleLogout={handleLogout} />
           <PrivateRoute path="/edit" component={ProfileEdit} user={currentUser} setUser={setCurrentUser} />
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
           <PrivateRoute path="/journeys/new" component={JourneyOrRideForm} user={currentUser}  />

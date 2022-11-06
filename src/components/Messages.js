@@ -5,7 +5,7 @@ const { REACT_APP_SERVER_URL } = process.env;
 
 
 function Messages(props) { 
-    console.log(props.arr)
+    console.log('MESSAGE ARRAY', props.arr)
 
 const messageBoard = props.arr.map((m, idx) => {
         return (
