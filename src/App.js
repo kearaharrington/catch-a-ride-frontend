@@ -76,7 +76,7 @@ function App() {
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
-          <PrivateRoute path="/profile/edit/:id" component={ProfileEdit} user={currentUser}  />
+          <PrivateRoute path="/edit" component={ProfileEdit} user={currentUser} setUser={setCurrentUser} />
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
           <PrivateRoute path="/journeys/new" component={JourneyOrRideForm} user={currentUser}  />
           <PrivateRoute path="/journeys/show/:id" component={JourneyDetails} user={currentUser}  />
