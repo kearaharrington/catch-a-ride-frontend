@@ -29,6 +29,8 @@ function Messages() {
             </div>
         )
     })
+
+    
     return (
         <div>
             {messageBoard}

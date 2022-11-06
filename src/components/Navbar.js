@@ -25,18 +25,22 @@ const Navbar = (props) => {
                         props.isAuth 
                         ? <ul className="navbar-nav ml-auto">
                             <li className="nav-item">
+                                <NavLink className="nav-link"  to="/profile">Profile</NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink className="nav-link"  to="/journeys/new">New Journey</NavLink>
                             </li>
                             <li className="nav-item">
                                 <NavLink className="nav-link"  to="/messages/user/635af2d66103bc41965b2160">Inbox</NavLink>
                             </li>
-<<<<<<< HEAD
                             <li>
                             <NavLink className="nav-link"  to="/vehicle">Add Vehicle</NavLink>
-=======
-                            <li className="nav-item">
+                            </li>
+                                <li className="nav-item">
                                 <span onClick={props.handleLogout} className="nav-link logout-link">Logout</span>
->>>>>>> be9723ba2bce8fab398f55af19bf107225c0b2de
                             </li>
                         </ul>
                         : <ul className="navbar-nav ml-auto">

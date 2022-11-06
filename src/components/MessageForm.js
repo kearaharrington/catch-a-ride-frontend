@@ -54,10 +54,10 @@ const MessageForm = (props) => {
                 </form>
             </div>
         </div>
-    </div>
-
+    </div>          
+    
     )
 }
-}
+
 
 export default MessageForm;

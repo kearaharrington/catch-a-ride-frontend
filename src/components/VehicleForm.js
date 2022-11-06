@@ -1,7 +1,8 @@
 // Imports
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+
 
 
 const { REACT_APP_SERVER_URL } = process.env
@@ -35,6 +36,9 @@ const Vehicle = (props) => {
     const handleYear = (e) => {
         setYear(e.target.value);
     }
+
+    
+    
     //https://{cdn-instance}.imagin.studio/{api-name}?customer={customer-key}&{query parameters}
     // componentDidMount() {
     //     fetch("https://cdn.imagin.studio/getImage?&customer=usalejandromorenocompany&make=audi&modelFamily=a6&modelRange=a6&modelVariant=sa&modelYear=2014&powerTrain=petrol&transmission=0&bodySize=4&trim=0&paintId=pspc0004&angle=01")
