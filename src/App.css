@@ -23,7 +23,7 @@ body {
 }
 
 .google-maps{
-  border: 0.625rem solid #a7a7a7;
+  border: 0.625rem solid #000dffad;
   max-width: 700px;
   max-height: 500px;
 }
