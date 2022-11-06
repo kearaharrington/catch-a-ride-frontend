@@ -17,12 +17,13 @@ body {
   background-color: rgba(20, 32, 100, 0.5);
 }
 
-#GoogleMaps{
+.GoogleMaps{
   width: 30px;
-  height: 50px;
+  height: 350px;
 }
 
-.googleMaps{
-  width: 30px;
-  height: 50px;
+.google-maps{
+  border: 0.625rem solid #a7a7a7;
+  max-width: 700px;
+  max-height: 500px;
 }

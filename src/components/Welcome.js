@@ -4,6 +4,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import "../App.css";
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -60,13 +62,10 @@ export class MapContainer extends Component {
  
   render() {
     return (
-      
-      <div id='googleMaps' className='googleMaps'>
-        <div className='google'
-              style={{
-                height: '20%',
-                width: '20%'
-              }}>
+  
+      <div className='googleMaps'>
+<h1 className='map-search'>Map Search</h1>
+        <div className='google'>
         <PlacesAutocomplete
           value={this.state.origin}
           onChange={this.handleChange}
@@ -145,8 +144,11 @@ export class MapContainer extends Component {
           )}
         </PlacesAutocomplete>
 
+        <div className='map-container'>
 
-        <Map 
+        <Map className="google-maps"
+          style={{ width: '100%',
+          height: '100%'}}
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
@@ -165,6 +167,8 @@ export class MapContainer extends Component {
         </Map>
       </div>
         </div>
+      </div>
+      
     )
   }
 }
