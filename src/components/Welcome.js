@@ -4,6 +4,8 @@ import PlacesAutocomplete, {
   geocodeByAddress,
   getLatLng,
 } from 'react-places-autocomplete';
+import "../App.css";
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -18,8 +20,8 @@ export class MapContainer extends Component {
       selectedPlace: {},
   
       mapCenter: {
-        lat: 49.2827291,
-        lng: -123.1207375
+        lat: 32.715738,
+        lng: -117.1610838
       }
     };
   }
@@ -60,9 +62,10 @@ export class MapContainer extends Component {
  
   render() {
     return (
+  
+      <div className='googleMaps'>
+<h1 className='map-search'>Map Search</h1>
         <div className='google'>
-
-      <div id='googleMaps' className='googleMaps'>
         <PlacesAutocomplete
           value={this.state.origin}
           onChange={this.handleChange}
@@ -74,7 +77,7 @@ export class MapContainer extends Component {
                 {...getInputProps({
                   placeholder: 'Origin',
                   className: 'location-search-input1',
-                  id: "location"
+                  id: "origin"
                 })}
               />
               <div className="autocomplete-dropdown-container">
@@ -113,6 +116,7 @@ export class MapContainer extends Component {
                 {...getInputProps({
                   placeholder: 'Destination',
                   className: 'location-search-input',
+                  id: "destination"
                 })}
               />
               <div className="autocomplete-dropdown-container2">
@@ -140,8 +144,11 @@ export class MapContainer extends Component {
           )}
         </PlacesAutocomplete>
 
+        <div className='map-container'>
 
-        <Map 
+        <Map className="google-maps"
+          style={{ width: '100%',
+          height: '100%'}}
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
@@ -160,6 +167,8 @@ export class MapContainer extends Component {
         </Map>
       </div>
         </div>
+      </div>
+      
     )
   }
 }

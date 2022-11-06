@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
-
 // CSS
 import './App.css';
 
@@ -14,7 +13,8 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
-import Welcome from './components/Welcome';
+import VisitProfile from './components/VisitProfile';
+import GoogleApiWrapper from './components/Welcome';
 import Vehicle from './components/VehicleForm';
 import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
@@ -22,6 +22,7 @@ import Message from './components/MessageForm';
 // import AllMessages from './components/AllMessages';
 import JourneyEdit from './components/JourneyEdit';
 import Inbox from './components/Inbox';
+import ProfileEdit from './components/ProfileEdit';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -77,6 +78,9 @@ function App() {
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
+
+          <PrivateRoute path="/visit/:idx" component={VisitProfile} oguser={currentUser} handleLogout={handleLogout} />
+          <PrivateRoute path="/edit" component={ProfileEdit} user={currentUser} setUser={setCurrentUser} />
           <PrivateRoute path="/vehicle" component={Vehicle} user={currentUser}  />
           <PrivateRoute path="/journeys/new" component={JourneyOrRideForm} user={currentUser}  />
           <PrivateRoute path="/journeys/show/:id" component={JourneyDetails} user={currentUser}  />
@@ -84,13 +88,12 @@ function App() {
           <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  />
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
-          <Route exact path="/" component={Welcome} />
+          <Route exact path="/" component={GoogleApiWrapper} />
           <Route path="/about" component={About} />
         </Switch>
       </div>
       <Footer />
-
-    </div>
+      </div>
     </Router>
   );
 }

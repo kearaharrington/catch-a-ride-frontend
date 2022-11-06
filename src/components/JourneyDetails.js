@@ -44,11 +44,11 @@ const JourneyDetails = () => {
     if (journey) {
         return (
             <div>
-                <h3>{journey.origin} to {journey.destination}</h3>
+                <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
                 <p>Open Seats: {journey.openSeats}</p>
                 <p>Desired Contribution: {journey.contribution}</p>
                 {/* <Link to={`/journeys/edit/${journey._id}`} state={{journey: journey}}> */}
-                {/* <button onClick={navEdit}>Edit Details</button> */}
+                <button onClick={navEdit}>Edit Details</button>
                 {/* <MessageForm userId={id}/> */}
             </div>
         );
