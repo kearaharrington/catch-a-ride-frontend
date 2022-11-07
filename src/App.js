@@ -22,6 +22,7 @@ import Message from './components/MessageForm';
 import JourneyEdit from './components/JourneyEdit';
 import Inbox from './components/Inbox';
 import ProfileEdit from './components/ProfileEdit';
+import Notfound from './components/404';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -89,6 +90,7 @@ function App() {
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
           <Route exact path="/" component={GoogleApiWrapper} />
           <Route path="/about" component={About} />
+          <Route path='/*' component={Notfound} />
         </Switch>
       </div>
       <Footer />
