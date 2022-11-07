@@ -11,8 +11,8 @@ const JourneyEdit = () => {
         origin: '',
         destination: '',
         contribution: '',
-        openSeats: ''
-        // date: ''
+        openSeats: '',
+        date: ''
     });
     // const { id, journey, setJourney } = props;
     const { id } = useParams();
@@ -40,13 +40,14 @@ const JourneyEdit = () => {
     };
 
     const handleSubmit = (e) => {
-        const { origin, destination, contribution, openSeats } = journey;
+        const { origin, destination, contribution, openSeats, date } = journey;
         e.preventDefault(); 
         const editedJourney = {
             origin: origin,
             destination: destination,
             contribution: contribution,
-            openSeats: openSeats
+            openSeats: openSeats,
+            date: date
         }
         axios.put(`${REACT_APP_SERVER_URL}/journeys/edit/${id}`, editedJourney)
             .then(response => {
@@ -65,6 +66,10 @@ const JourneyEdit = () => {
                     <div className="card card-body">
                         <h2 className="py-2">Edit Journey Details:</h2>
                         <form onSubmit={handleSubmit}>
+                            <div className='form-group'>
+                                <label htmlFor="date">Departure Date: </label>
+                                <input type="date" value={journey.date} name='date' onChange={handleChange} />
+                            </div>
                             <div className="form-group">
                                 <label htmlFor="origin">Leaving From:</label>
                                 <input type="text" name="origin" value={journey.origin} onChange={handleChange} placeholder={journey.origin} className="form-control"/>
