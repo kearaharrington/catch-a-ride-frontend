@@ -10,9 +10,9 @@ function Messages(props) {
 let messageBoard = props.arr.map((m, idx) => {
         return (
             <div key={idx}>
-                <h2>
+                <h4>
                     {m.title}
-                </h2>
+                </h4>
                 <p>
                     {m.content}
                 </p>
