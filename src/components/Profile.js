@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MessageForm from './MessageForm';
+import ReviewsForm from './ReviewsForm';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
@@ -17,16 +17,17 @@ const Profile = (props) => {
    const { handleLogout, user } = props;
 
 
-   const { id, firstName, lastName, birthdate, email, exp, messages } = user;
+   const { id, firstName, lastName, birthdate, email, exp} = user;
    const [reviewsArr, setReviewsArr] = useState([]);
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
+
   useEffect(() => {
     setAuthToken(localStorage.getItem('jwtToken'));
     axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
     .then(res => {
         console.log('RESPONSE', res.data);
-        setReviewsArr(res.data.reviews);
+        setReviewsArr(res.data.rev);
     }).catch(err => { console.log(err);
     });
   }, []);
@@ -46,9 +47,8 @@ const Profile = (props) => {
        <p>Email: {email}</p>
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
-       <p>Messages: {messages}</p>
        <div>
-        <MessageForm userId={id}/>
+        <ReviewsForm userId={reviewsArr}/>
 
         <Messages arr={reviewsArr} />
         

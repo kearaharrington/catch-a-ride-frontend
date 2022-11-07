@@ -7,9 +7,9 @@ const { REACT_APP_SERVER_URL } = process.env;
 function Messages(props) { 
     console.log('MESSAGE ARRAY', props.arr)
 
-const messageBoard = props.arr.map((m, idx) => {
+let messageBoard = props.arr.map((m, idx) => {
         return (
-            <div id={idx}>
+            <div key={idx}>
                 <h2>
                     {m.title}
                 </h2>
@@ -22,7 +22,9 @@ const messageBoard = props.arr.map((m, idx) => {
 
     console.log('BEFORE', messageBoard);
 
-    if (messageBoard.length < 1) messageBoard.push('No Messages...')
+    if (messageBoard.length) {
+        let messageBoard = <p>'No Messages'</p>
+    }
 
     console.log('AFTER', messageBoard);
   
