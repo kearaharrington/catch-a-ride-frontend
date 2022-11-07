@@ -7,18 +7,18 @@ const { REACT_APP_SERVER_URL } = process.env;
 function Messages(props) { 
     console.log('MESSAGE ARRAY', props.arr)
 
-const messageBoard = props.arr.map((m, idx) => {
-        return (
-            <div id={idx}>
-                <h2>
-                    {m.title}
-                </h2>
-                <p>
-                    {m.content}
-                </p>
-            </div>
-        )
-    })
+// const messageBoard = props.arr.map((m, idx) => {
+//         return (
+//             <div id={idx}>
+//                 <h2>
+//                     {m.title}
+//                 </h2>
+//                 <p>
+//                     {m.content}
+//                 </p>
+//             </div>
+//         )
+//     })
 
     
     return (
@@ -26,7 +26,7 @@ const messageBoard = props.arr.map((m, idx) => {
         <div>
             <h3>Messages:</h3>
             
-    {messageBoard}
+    {/* {messageBoard} */}
         </div>
         
     ) 

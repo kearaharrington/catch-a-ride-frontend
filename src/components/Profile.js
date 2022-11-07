@@ -32,7 +32,7 @@ const Profile = (props) => {
        <div>
         <MessageForm userId={id}/>
         <Messages user={id} />
-        <h2>Vehicle: {<Vehicles userId={id}/>}</h2>
+        <Vehicles user={id}/>
        </div>
    </div>) : <h2>Loading...</h2>
 
