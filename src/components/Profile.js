@@ -48,7 +48,6 @@ const Profile = (props) => {
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
        <div>
-        <ReviewsForm userId={reviewsArr}/>
 
         <Messages arr={reviewsArr} />
         
