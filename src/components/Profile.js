@@ -30,8 +30,8 @@ const Profile = (props) => {
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
        <div>
-        <MessageForm userId={id}/>
-        <Messages user={id} />
+        {/* <MessageForm userId={id}/> */}
+        {/* <Messages user={id} /> */}
         <Vehicles user={id}/>
        </div>
    </div>) : <h2>Loading...</h2>
