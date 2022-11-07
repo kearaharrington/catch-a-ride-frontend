@@ -41,7 +41,7 @@ const Profile = (props) => {
    }
 
    const userData = user ?
-   (<div>
+   (<div className='profile-card'>
        <h1>Profile</h1>
        <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
