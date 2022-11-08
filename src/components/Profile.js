@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import ReviewsForm from './ReviewsForm';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
+import Images from './Image';
 const { REACT_APP_SERVER_URL } = process.env;
-
-// axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
-// .then(res => {
-//     console.log(res.data);
-//     // setReviewsArr(res.data);
-// })
 
 
 const Profile = (props) => {
@@ -43,6 +37,7 @@ const Profile = (props) => {
    const userData = user ?
    (<div className='profile-card'>
        <h1>Profile</h1>
+       <Images />
        <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
        <p>Birthday: {birthdate}</p>
