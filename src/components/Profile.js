@@ -4,6 +4,7 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
 import Images from './Image';
+import ImageContainer from './ImageContainer';
 const { REACT_APP_SERVER_URL } = process.env;
 
 
@@ -37,6 +38,7 @@ const Profile = (props) => {
    const userData = user ?
    (<div className='profile-card'>
        <h1>Profile</h1>
+       <ImageContainer />
        <Images />
        <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
