@@ -6,7 +6,9 @@ const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const Inbox = (props) => {
   const [journeys, setJourneys] = useState([]);
+  const [journeyId, setJourneyId] = useState([]);
   const [messages, setMessages] = useState([]);
+  const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
     const fetchJourneys = async () => {
@@ -20,18 +22,21 @@ const Inbox = (props) => {
 
   console.log(journeys);
 
-  // const allMessages = journeys.map((journey) => {
-  //   // let array = journey.messages;
-  //   // array.map((message) => {
-  //   //   console.log(message);
-  //   //   return (
-  //   //     <h2>{message.content}</h2>
-  //   //   )
-  //   // })
-  //   return journey.messages.map((message) => {
-  //     <p>{message.content}</p>
-  //   })
-  // })
+  const acceptPassenger = (e) => {
+    e.preventDefault();
+    const jid = e.target.getAttribute('jid');
+    const uid = e.target.getAttribute('uid');
+    setJourneyId(jid);
+    axios.post(`${REACT_APP_SERVER_URL}/journeys/${jid}/passenger/${uid}`)
+      .then(response => {
+        console.log(jid);
+        console.log(uid);
+        setRedirect(true);
+      })
+      .catch(error => console.log('===> Error accepting passenger', error));
+  }
+
+  if (redirect) return <Redirect to={`/journeys/show/${journeyId}`} /> 
 
   if (journeys) {
     return (
@@ -39,13 +44,15 @@ const Inbox = (props) => {
       {journeys.map((journey, index) => {
         return (
           <div key={index}>
-            <h2>From: {journey.origin} To: {journey.destination}</h2>
+            <h2 jid={journey._id}>From: {journey.origin} To: {journey.destination}</h2>
 
             {journey.messages.map((message, index) => {
               return (
-                <div key={index}>
+                <div key={index} uid={message.user[0]}>
+                  <h4>Title: {message.title}</h4>
                   <p>Message: {message.content}</p>
                   <p>From: {message.user.firstName}</p>
+                  <button onClick={acceptPassenger}>Accept Passenger</button>
                 </div>
               );
             })}
