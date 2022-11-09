@@ -4,8 +4,6 @@ import axios from 'axios';
 const Images = () => {
 
     // states
- const [onFileChange, setOnFileChange] = useState('');
- const [onSubmit, setOnSubmit] = useState('');
  const [state, setState] = useState({
     profileImg: ''
  })
@@ -18,7 +16,15 @@ const Images = () => {
     }).then(res => {
         console.log(res)
     })
- } 
+
+       
+    };
+    // reader.readAsDataURL(file);
+
+
+  
+
+ 
 
  const handleFileChange = (e) => {
     setState({ profileImg: e.target.files[0] })

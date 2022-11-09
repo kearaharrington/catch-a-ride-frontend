@@ -17,25 +17,25 @@ const Profile = (props) => {
     const { handleLogout, user } = props;
 
 
-    const { id, firstName, lastName, birthdate, email, exp } = user;
-    const [reviewsArr, setReviewsArr] = useState([]);
-    const [profilePic, setProfilePic] = useState([]);
-    const expirationTime = new Date(exp * 1000);
-    let currentTime = Date.now();
+   const { id, firstName, lastName, birthdate, email, exp} = user;
+   const [reviewsArr, setReviewsArr] = useState([]);
+   const [profilePic, setProfilePic] = useState('');
+   const expirationTime = new Date(exp * 1000);
+   let currentTime = Date.now();
 
-    useEffect(() => {
-        setAuthToken(localStorage.getItem('jwtToken'));
-        axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
-            .then(res => {
-                console.log('RESPONSE', res.data);
-                setReviewsArr(res.data.rev);
-                // setProfilePic(res.data.user.photos[0]);
-            }).catch(err => {
-                console.log(err);
-            });
-    }, []);
+  useEffect(() => {
+    setAuthToken(localStorage.getItem('jwtToken'));
+    axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
+    .then(res => {
+        console.log('RESPONSE', res.data);
+        setReviewsArr(res.data.rev);
+        
+        localStorage.setItem('photoId', res.data.photos[0])
+    }).catch(err => { console.log(err);
+    });
+  }, []);
 
-
+ 
 
 
     // make a condition that compares exp and current time
@@ -47,20 +47,26 @@ const Profile = (props) => {
 
 
 
-    const userData = user ?
-        (<div className='profile-card'>
-            <h1>Profile</h1>
-            <ImageContainer photoId={profilePic} />
-            <Images />
-            <p>Name: {firstName} {lastName}</p>
-            <p>Email: {email}</p>
-            <p>Birthday: {birthdate}</p>
-            <p>ID: {id}</p>
-            <div>
-                <Vehicles user={id} />
-                <Messages arr={reviewsArr} />
-            </div>
-        </div>) : <h2>Loading...</h2>
+   const userData = user ?
+   (<div className='profile-card'>
+       <h1>Profile</h1>
+       <ImageContainer photoId={profilePic} />
+       <Images />
+       <p>Name: {firstName} {lastName}</p>
+       <p>Email: {email}</p>
+       <p>Birthday: {birthdate}</p>
+       <p>ID: {id}</p>
+       <div>
+        <Vehicles user={id}/>
+
+
+        <Messages arr={reviewsArr} />
+        
+        
+
+
+       </div>
+   </div>) : <h2>Loading...</h2>
 
     const errorDiv = () => {
         return (

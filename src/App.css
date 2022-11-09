@@ -4,7 +4,8 @@ html {
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
-  background-color: darkturquoise;
+  background-image: url(/src/assets/wallpaper.jpeg);
+  background-size: cover;
   
 }
 
@@ -70,4 +71,8 @@ body {
   background-color: rgb(17, 97, 113);
   color: white;
   height:200px;
+}
+
+.map-search {
+  color: white;
 }
