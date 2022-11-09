@@ -5,7 +5,7 @@ import setAuthToken from '../utils/setAuthToken';
 import ShowVehicle from './ShowVehicle';
 
 
-const { REACT_APP_SERVER_URL } = process.env;
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 const VehicleEdit = () => {
     const [vehicle, setVehicle] = useState({        
         make: '',

@@ -87,7 +87,7 @@ function App() {
           <PrivateRoute path="/journeys/new" component={JourneyOrRideForm} user={currentUser}  />
           <PrivateRoute path="/journeys/show/:id" component={JourneyDetails} user={currentUser}  />
           <PrivateRoute path="/journeys/edit/:id" component={JourneyEdit} user={currentUser}  />
-          <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  />
+          <PrivateRoute path="/messages/inbox" component={Inbox} user={currentUser}  />
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
           <PrivateRoute path="/vehicles/edit/:id" component={VehicleEdit} user={currentUser}/>   
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
