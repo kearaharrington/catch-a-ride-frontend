@@ -14,6 +14,7 @@ const Profile = (props) => {
 
    const { id, firstName, lastName, birthdate, email, exp} = user;
    const [reviewsArr, setReviewsArr] = useState([]);
+   const [profilePic, setProfilePic] = useState([]);
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -23,6 +24,7 @@ const Profile = (props) => {
     .then(res => {
         console.log('RESPONSE', res.data);
         setReviewsArr(res.data.rev);
+        // setProfilePic(res.data.user.photos[0]);
     }).catch(err => { console.log(err);
     });
   }, []);
@@ -38,7 +40,7 @@ const Profile = (props) => {
    const userData = user ?
    (<div>
        <h1>Profile</h1>
-       <ImageContainer />
+       <ImageContainer photoId={profilePic} />
        <Images />
        <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
