@@ -23,7 +23,7 @@ useEffect(() => {
 
    
 return (
-    <div>
+    <div className='image-container'>
         <img src={`data:image/jpeg;base64,${img}`} />
     </div>
 )

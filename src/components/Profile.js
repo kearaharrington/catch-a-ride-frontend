@@ -52,11 +52,14 @@ const Profile = (props) => {
        <h1>Profile</h1>
        <ImageContainer photoId={profilePic} />
        <Images />
-       <p>Name: {firstName} {lastName}</p>
-       <p>Email: {email}</p>
-       <p>Birthday: {birthdate}</p>
-       <p>ID: {id}</p>
-       <div>
+       <div className='profile-info'>
+       <h4>Name: {firstName} {lastName}</h4>
+       <h4>Email: {email}</h4>
+       <h4>Birthday: {birthdate}</h4>
+       <h4>ID: {id}</h4>
+
+       </div>
+       <div className='vehicle-info'>
         <Vehicles user={id}/>
 
 

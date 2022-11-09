@@ -86,7 +86,8 @@ const Signup = () => {
                             <input type="password" name="confirmPassword" value={confirmPassword} onChange={handleConfirmPassword} className="form-control"/>
                         </div>
                         <div className='form-group'>
-                            <label htmlFor="Birthdate">Birthdate </label>
+                            <label htmlFor="Birthdate">Birthdate  </label>
+                            <br/>
                             <input type="date" value={birthdate} name='Birthdate' onChange={handleBirthdate} />
                         </div>
                         <button type="submit" className="btn btn-primary float-right">Submit</button>
