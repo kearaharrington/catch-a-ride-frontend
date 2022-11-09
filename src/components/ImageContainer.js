@@ -13,6 +13,7 @@ useEffect(() => {
     console.log('photos ID', props.photoId)
 axios.get(`${REACT_APP_SERVER_URL}/images/show/${localStorage.getItem('photoId')}`)
         .then(res => {
+            console.log('RES>DATA', res.data);
             setImg(Buffer.from(res.data.image, 'base64').toString('base64'));
         }).catch(err => {
             console.log(err);
