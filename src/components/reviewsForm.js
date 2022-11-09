@@ -5,32 +5,35 @@ import { Redirect, useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 
 
-const MessageForm = (props) => {
+const ReviewsForm = (props) => {
 
   
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [redirect, setRedirect] = useState(false);
+    const [id, setId] = useState('');
 
     const history = useHistory();
 
-// setUser(props.user.token);
+    
 
     const handleTitle = (e) => {
         setTitle(e.target.value);
+        setId(props.userId)
     }
 
     const handleContent = (e) => {
         setContent(e.target.value);
     }
 
-   function handleSubmit() {
-    const newReview = {title, content}
+   function handleSubmit(e) {
+    e.preventDefault();
+    const newReview = {title, content, id}
     axios.post(`${REACT_APP_SERVER_URL}/reviews/new`, newReview)
     .then(response => {
         console.log('===> New Message');
         console.log(response);
-        history.push(`/message/new`);
+        history.push(`/reviews/new`);
         setRedirect(true);
     })
     .catch(error => console.log('===> Error in Messages', error));
@@ -40,7 +43,7 @@ const MessageForm = (props) => {
         <div className="row mt-4">
         <div className="col-md-7 offset-md-3">
             <div className="card card-body">
-                <h2 className="py-2">New Message</h2>
+                <h2 className="py-2">New Review</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
                         <label htmlFor="name">Title</label>
@@ -59,4 +62,4 @@ const MessageForm = (props) => {
     )
 }
 
-export default MessageForm;
+export default ReviewsForm;

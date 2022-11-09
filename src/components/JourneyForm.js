@@ -38,7 +38,7 @@ const JourneyForm = () => {
     if (redirect) return <Redirect to={`/journeys/show/${journeyId}`} /> // You can have them redirected to profile (your choice)
 
     return (
-        <div className="row mt-4">
+        <div className="row mt-4 journey-size">
             <div className="col-md-7 offset-md-3">
                 <div className="card card-body">
                     <h2 className="py-2">Post a New Journey!</h2>

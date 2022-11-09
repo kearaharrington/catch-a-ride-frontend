@@ -38,7 +38,7 @@ const RideReqForm = () => {
     if (redirect) return <Redirect to={`/journeys/${journeyId}`} /> // You can have them redirected to profile (your choice)
 
     return (
-        <div className="row mt-4">
+        <div className="row mt-4 request-size">
             <div className="col-md-7 offset-md-3">
                 <div className="card card-body">
                     <h2 className="py-2">Request a Ride!</h2>
