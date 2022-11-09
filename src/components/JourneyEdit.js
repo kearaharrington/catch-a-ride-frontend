@@ -63,13 +63,14 @@ const JourneyEdit = () => {
             current.filter(passengerUid => {
                 return passengerUid._id !== pId;
             }))
-        axios.delete(`${REACT_APP_SERVER_URL}/journeys/passengers/remove`, passengerUids)
+        axios.delete(`${REACT_APP_SERVER_URL}/journeys/${id}/passengers/remove`, pId)
             .catch(error => console.log('===> Error in remove passengers', error));
     };
 
     const allPassengers = passengerUids.map((passenger,idx) => {
+        console.log(passenger);
         return (
-            <li key={idx} pId={passenger._id}>{passenger.firstName} {passenger.lastName} <button onclick={removePassenger}>Remove</button></li>
+            <li key={idx}>{passenger.firstName} {passenger.lastName} <button pId={passenger._id} onClick={removePassenger}>Remove</button></li>
         )
     })
 
