@@ -65,3 +65,9 @@ body {
 .nav-link{
   color: red;
 }
+
+.aboutUs{
+  background-color: rgb(17, 97, 113);
+  color: white;
+  height:200px;
+}
