@@ -13,17 +13,6 @@ const JourneyDetails = () => {
 
     console.log(id);
 
-    // useEffect(() => {
-    //     axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`)
-    //         .then(response => {
-    //             console.log(response.data);
-    //             setJourney(response.data.journey);
-    //        })
-    //        .catch((err) => {
-    //           console.log(err.message);
-    //        });
-    //  }, []);
-
     useEffect(() => {
         const fetchJourney = async () => {
             setAuthToken(localStorage.getItem('jwtToken'));
@@ -47,7 +36,6 @@ const JourneyDetails = () => {
                 <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
                 <p>Open Seats: {journey.openSeats}</p>
                 <p>Desired Contribution: {journey.contribution}</p>
-                {/* <Link to={`/journeys/edit/${journey._id}`} state={{journey: journey}}> */}
                 <button onClick={navEdit}>Edit Details</button>
                 {/* <MessageForm userId={id}/> */}
             </div>
