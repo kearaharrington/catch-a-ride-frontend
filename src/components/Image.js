@@ -27,10 +27,7 @@ const Images = () => {
     };
     reader.readAsDataURL(file);
 
-    // const formData = new FormData()
-    // formData.append('profileImg', state.profileImg)
-    // axios.defaults.headers.common['Allow-Access-Control-Origin'] = 'http://localhost:8000';
-    
+
   
  } 
 
