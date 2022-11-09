@@ -57,9 +57,6 @@ const Profile = (props) => {
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
        <div>
-
-        { <MessageForm userId={id}/> }
-        {/* { <Messages user={id} /> } */}
         <Vehicles user={id}/>
 
 
