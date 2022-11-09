@@ -3,7 +3,7 @@
 Catch-A-Ride is an American online marketplace for carpooling. Our website connects drivers and passengers willing to travel together between cities at an agreed upon price.
 
 
-# MERN Authentication Frontend
+# Catch A Ride Frontend
 
 | Components | Links to Code | Description |
 | --- | --- | --- |
@@ -24,7 +24,7 @@ Catch-A-Ride is an American online marketplace for carpooling. Our website conne
 ```jsx
 // Imports
 import React, { useEffect, useState } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './utils/setAuthToken';
 
@@ -38,10 +38,20 @@ import Footer from './components/Footer';
 import Login from './components/Login';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
-import Welcome from './components/Welcome';
+import VisitProfile from './components/VisitProfile';
+import GoogleApiWrapper from './components/Welcome';
+import Vehicle from './components/VehicleForm';
+import JourneyOrRideForm from './components/JourneyOrRideReq';
+import JourneyDetails from './components/JourneyDetails';
+import Message from './components/MessageForm';
+import VehicleEdit from './components/VehicleEdit';
+import JourneyEdit from './components/JourneyEdit';
+import Inbox from './components/Inbox';
+import ProfileEdit from './components/ProfileEdit';
+import Notfound from './components/404';
 ```
 
-### `useState` inside `App`
+### `useState` inside `App.js`
 
 ```jsx
 function App() {
@@ -49,6 +59,15 @@ function App() {
   const [currentUser, setCurrentUser] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(true);
 }
+```
+
+### `useState` inside `Image.js`
+
+```jsx
+// State Values
+ const [state, setState] = useState({
+    profileImg: ''
+ })
 ```
 
 ### `PrivateRoute`
