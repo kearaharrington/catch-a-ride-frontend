@@ -5,6 +5,8 @@ import PlacesAutocomplete, {
   getLatLng,
 } from 'react-places-autocomplete';
 import "../App.css";
+import JourneyOrRideForm from './JourneyOrRideReq';
+
 
 
 export class MapContainer extends Component {
@@ -25,6 +27,8 @@ export class MapContainer extends Component {
       }
     };
   }
+
+  
 
   handleChange = origin => {
     this.setState({ origin });
@@ -61,9 +65,10 @@ export class MapContainer extends Component {
   };
  
   render() {
+
     return (
   
-      <div className='googleMaps'>
+      <div className='googleMaps me-5'>
 <h1 className='map-search'>Map Search</h1>
         <div className='google'>
         <PlacesAutocomplete
@@ -147,8 +152,8 @@ export class MapContainer extends Component {
         <div className='map-container'>
 
         <Map className="google-maps"
-          style={{ width: '100%',
-          height: '100%'}}
+          style={{ width: '40%',
+          height: '80%'}}
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
@@ -165,9 +170,12 @@ export class MapContainer extends Component {
               lng: this.state.mapCenter.lng
             }} />
         </Map>
+        <br />
       </div>
         </div>
+
       </div>
+  
       
     )
   }

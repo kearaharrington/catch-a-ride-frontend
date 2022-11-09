@@ -12,8 +12,9 @@ const JourneyOrRideForm = () => {
         
     return (
         <div>
+            <div className='RRforms'>
             {driver}
-            <div className='form-group'>
+            <div className='form-group journey-or-request'>
                 <select className="custom-select" onChange={handleChange}>
                     <option>Driver</option>
                     <option>Passenger</option>
@@ -21,6 +22,7 @@ const JourneyOrRideForm = () => {
             </div>
             <div>
                 {driver === true ?  <JourneyForm/> : <RideReqForm/>}
+            </div>
             </div>
         </div>
     )

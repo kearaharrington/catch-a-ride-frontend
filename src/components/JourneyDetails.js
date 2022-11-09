@@ -3,7 +3,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 // import MessageForm from './MessageForm';
-const { REACT_APP_SERVER_URL } = process.env;
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
 
 
 const JourneyDetails = () => {
@@ -12,17 +12,6 @@ const JourneyDetails = () => {
     const [redirect, setRedirect] = useState(false);
 
     console.log(id);
-
-    // useEffect(() => {
-    //     axios.get(`${REACT_APP_SERVER_URL}/journeys/${id}`)
-    //         .then(response => {
-    //             console.log(response.data);
-    //             setJourney(response.data.journey);
-    //        })
-    //        .catch((err) => {
-    //           console.log(err.message);
-    //        });
-    //  }, []);
 
     useEffect(() => {
         const fetchJourney = async () => {
@@ -47,7 +36,6 @@ const JourneyDetails = () => {
                 <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
                 <p>Open Seats: {journey.openSeats}</p>
                 <p>Desired Contribution: {journey.contribution}</p>
-                {/* <Link to={`/journeys/edit/${journey._id}`} state={{journey: journey}}> */}
                 <button onClick={navEdit}>Edit Details</button>
                 {/* <MessageForm userId={id}/> */}
             </div>

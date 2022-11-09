@@ -7,6 +7,7 @@ const { REACT_APP_SERVER_URL } = process.env;
 function Messages(props) { 
     console.log('MESSAGE ARRAY', props.arr)
 
+
 let messageBoard = props.arr.map((m, idx) => {
         return (
             <div key={idx}>
@@ -33,7 +34,7 @@ let messageBoard = props.arr.map((m, idx) => {
         <div>
             <h3>Messages:</h3>
             
-    {messageBoard}
+    {/* {messageBoard} */}
         </div>
         
     ) 

@@ -4,7 +4,11 @@ html {
 }
 body {
   margin-bottom: 60px; /* Margin bottom by footer height */
+  background-image: url(/src/assets/wallpaper.jpeg);
+  background-size: cover;
+  
 }
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -17,13 +21,58 @@ body {
   background-color: rgba(20, 32, 100, 0.5);
 }
 
-.GoogleMaps{
-  width: 30px;
+/* .GoogleMaps{
+  width: 40px;
   height: 350px;
-}
+} */
 
 .google-maps{
-  border: 0.625rem solid #000dffad;
-  max-width: 700px;
+  max-width: 1000px;
+  max-height: 600px;
+}
+
+/* .journey-map{
+  max-height: 100px;
+  max-width: 100px;
+} */
+
+.journey-size{
+  margin: auto;
+  max-width: 500px;
   max-height: 500px;
+}
+
+.request-size{
+  margin: auto;
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.profile-card {
+  background-color: rgb(253, 253, 253);
+  border-radius: 40%;
+  
+}
+
+.journey-or-request{
+  margin: auto;
+  max-width: 200px;
+}
+
+/* .RRforms{
+  background-color: blue;
+} */
+
+.nav-link{
+  color: red;
+}
+
+.aboutUs{
+  background-color: rgb(17, 97, 113);
+  color: white;
+  height:200px;
+}
+
+.map-search {
+  color: white;
 }
