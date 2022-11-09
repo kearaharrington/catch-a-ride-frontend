@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Redirect, useHistory } from 'react-router-dom';
+import {Buffer} from 'buffer';
 const { REACT_APP_SERVER_URL } = process.env;
 
 

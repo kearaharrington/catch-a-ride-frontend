@@ -18,7 +18,6 @@ const Vehicle = (props) => {
     const [year, setYear] = useState('');
     const [results, setResults] = useState('');
     const [url, setUrl] = useState('');
-    //const [user, setUser] = useState('');
     const [redirect, setRedirect] = useState(false);
 
     const user = props.user.id;

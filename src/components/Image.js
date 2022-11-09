@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const { REACT_APP_SERVER_URL } = process.env;
 
 const Images = () => {
 
@@ -9,31 +10,34 @@ const Images = () => {
  })
 
  const handleSubmit = (e) => {
-    e.target.preventDefault();
-    const formData = new FormData()
-    formData.append('profileImg', state.profileImg)
-    axios.post("http://localhost:3000/api/images/new", formData, {
-    }).then(res => {
-        console.log(res)
-    })
+    e.preventDefault();
+    const file = state.profileImg;
+    console.log(file);
+    const reader = new FileReader();
+    reader.onloadend = () => {
 
+        console.log('base64 encoding', reader.result);
+        axios.post(`${REACT_APP_SERVER_URL}/images/new`, {file: reader.result})
+    .then(res => {
+        console.log(res);
+    })
        
     };
-    // reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
 
 
   
-
- 
+ } 
 
  const handleFileChange = (e) => {
+    console.log(e.target.files)
     setState({ profileImg: e.target.files[0] })
  }
 
  return (
     <div className="container">
         <div className="row">
-            <form onSubmit={handleSubmit}>
+            <form id='profilePic' onSubmit={handleSubmit}>
                 <div className="form-group">
                     <input type="file" onChange={handleFileChange} />
                 </div>
