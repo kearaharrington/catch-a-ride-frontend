@@ -24,6 +24,7 @@ import JourneyEdit from './components/JourneyEdit';
 import Inbox from './components/Inbox';
 import ProfileEdit from './components/ProfileEdit';
 import Notfound from './components/404';
+import JourneyResults from './components/JourneyResults';
 
 const PrivateRoute = ({ component: Component, ...rest}) => {
   let token = localStorage.getItem('jwtToken');
@@ -78,6 +79,8 @@ function App() {
             path="/login"
             render={(props) => <Login {...props} nowCurrentUser={nowCurrentUser} setIsAuthenticated={setIsAuthenticated} user={currentUser}/>}
           />
+          <Route path='/journeys/all' component={JourneyResults} />
+
           <PrivateRoute path="/profile" component={Profile} user={currentUser} handleLogout={handleLogout} />
 
           <PrivateRoute path="/visit/:idx" component={VisitProfile} oguser={currentUser} handleLogout={handleLogout} />
