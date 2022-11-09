@@ -14,14 +14,10 @@ const VehicleEdit = () => {
         seats: '',
         // date: ''
     });
-    // const { id, journey, setJourney } = props;
-    const { id } = useParams();
-    // const history = useHistory();
-    // const { origin } = props.origin;
     const [redirect, setRedirect] = useState(false);
+    const { id } = useParams();
 
     console.log(id);
-    // console.log(journey);
 
     useEffect(() => {
         const fetchVehicle = async () => {

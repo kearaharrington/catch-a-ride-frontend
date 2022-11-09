@@ -19,7 +19,6 @@ import Vehicle from './components/VehicleForm';
 import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
-// import AllMessages from './components/AllMessages';
 import VehicleEdit from './components/VehicleEdit';
 import JourneyEdit from './components/JourneyEdit';
 import Inbox from './components/Inbox';

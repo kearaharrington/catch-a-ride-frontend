@@ -70,6 +70,183 @@ function App() {
  })
 ```
 
+### `useState` inside `ImageContainer.js`
+
+```jsx
+const[img, setImg] = useState('');
+    const[photoId, setPhotoId] = useState(props.photoId)
+  ```
+
+  ### `useState` inside `Inbox.js`
+
+  ```jsx
+  const [journeys, setJourneys] = useState([]);
+  const [journeyId, setJourneyId] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [redirect, setRedirect] = useState(false);
+  ```
+
+  ### `useState` inside `JourneyDetails.js`
+
+  ```jsx
+    const [journey, setJourney] = useState();
+    const { id } = useParams();
+    const [redirect, setRedirect] = useState(false);
+
+  
+  ```
+
+   ### `useState` inside `JourneyEdit.js`
+
+  ```jsx
+    const [journey, setJourney] = useState({
+        origin: '',
+        destination: '',
+        contribution: '',
+        openSeats: '',
+        date: ''
+    });
+    const [passengerUids, setPassengerUids] = useState([])
+    const { id } = useParams();
+    const [redirect, setRedirect] = useState(false);
+
+  
+  ```
+
+  ### `useState` inside `JourneyForm.js`
+
+  ```jsx
+    const [journey, setJourney] = useState({
+        origin: '',
+        destination: '',
+        contribution: '',
+        openSeats: '',
+        date: ''
+    });
+    const [redirect, setRedirect] = useState(false);
+    const [journeyId, setJourneyId] = useState('');
+
+  
+  ```
+
+  ### `useState` inside `JourneyOrRideReq.js`
+
+  ```jsx
+  const [driver, setDriver] = useState(true);
+  
+  ```
+
+  ### `useState` inside `Login.js`
+
+  ```jsx
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+  
+  ```
+
+  ### `useState` inside `MessageForm.js`
+
+  ```jsx
+    
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [redirect, setRedirect] = useState(false);
+  
+  ```
+
+  ### `useState` inside `Profile.js`
+
+  ```jsx
+   const [reviewsArr, setReviewsArr] = useState([]);
+   const [profilePic, setProfilePic] = useState('');
+  
+  ```
+
+  ### `useState` inside `ProfileEdit.js`
+
+  ```jsx
+    const { user, setUser } = props;
+    const [redirect, setRedirect] = useState(false);
+  
+  ```
+
+  ### `useState` inside `ProfilePic.js`
+
+  ```jsx
+    const[img, setImg] = useState('');
+    const[photoId, setPhotoId] = useState(props.photoId)
+  
+  ```
+
+  ### `useState` inside `ReviewsForm.js`
+
+  ```jsx
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const [redirect, setRedirect] = useState(false);
+    const [id, setId] = useState('');
+
+  
+  ```
+
+
+  ### `useState` inside `RideReqForm.js`
+
+  ```jsx
+    const [journey, setJourney] = useState({
+        origin: '',
+        destination: '',
+        contribution: '',
+        openSeats: '',
+        date: ''
+    });
+    const [redirect, setRedirect] = useState(false);
+    const [journeyId, setJourneyId] = useState('');
+  
+  ```
+
+
+  ### `useState` inside `ShowVehicle.js`
+
+  ```jsx
+    const [results, setResults] = useState('');
+  
+  ```
+
+
+  ### `useState` inside `Signup.js`
+
+  ```jsx
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [birthdate, setBirthdate] = useState('');
+    const [redirect, setRedirect] = useState(false);
+  
+  ```
+
+
+  ### `useState` inside `VehicleEdit.js`
+
+  ```jsx
+    const [vehicle, setVehicle] = useState({        
+        make: '',
+        model: '',
+        year: '',
+        seats: '',
+        // date: ''
+    });
+    const [redirect, setRedirect] = useState(false);
+  
+  ```
+
+
+
+
+
+
 ### `PrivateRoute`
 
 ```jsx
