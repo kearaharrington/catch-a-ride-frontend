@@ -17,6 +17,7 @@ const Vehicle = (props) => {
     const [seats, setSeats] = useState('');
     const [year, setYear] = useState('');
     const [results, setResults] = useState('');
+    const [url, setUrl] = useState('');
     //const [user, setUser] = useState('');
     const [redirect, setRedirect] = useState(false);
 
@@ -65,14 +66,14 @@ const Vehicle = (props) => {
         .then(response =>{
           console.log('Vehicle API response', response.config.url);
           console.log(process.env)
-          setResults(response.config.url);
+          setUrl(response.config.url);
         })
         .catch(error => console.log('ERROR', error));
     }
 
     function handleSubmit(e) {
     e.preventDefault()
-    const newVehicle = {make, model, seats, year, user}
+    const newVehicle = {make, model, seats, year, user, url}
     axios.post(`${REACT_APP_SERVER_URL}/vehicles/new`, newVehicle)
     .then(response => {
         console.log('===> Yay, new vehicle');
@@ -107,7 +108,7 @@ const Vehicle = (props) => {
                     <button type="submit" className="btn btn-primary float-right">Submit</button>
                 </form>
             </div>
-            <div><img src={results} alt="" /></div>
+            <div><img src={url} alt="" /></div>
         </div>
     </div>
 

@@ -3,13 +3,16 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import ShowVehicle from './ShowVehicle';
 import '../css/Vehicle.css'
+import { Link, Redirect, useHistory } from 'react-router-dom';
 const { REACT_APP_SERVER_URL } = process.env;
 const { REACT_APP_API_KEY } = process.env;
 
+    
 
 function Vehicles(props) { 
     const [vehicle, setVehicle] = useState([]);
     const [results, setResults] = useState('');
+    const [redirect, setRedirect] = useState(false);
     // setVehicle(props.user.vehicle);
     
     // useEffect(() => {
@@ -55,13 +58,23 @@ function Vehicles(props) {
             
         })
     }, [])
+    
 
+     let history = useHistory();
+    const handleClick = (id) => {
+        // 👇️ navigate to /contacts
+        console.log('redirect')
+        history.push(`vehicles/edit/${id}`)
+        };
     
     // console.log('Vehicle variable is this:', vehicle)
     // console.log(vehicle[0])
     console.log(vehicle);
+    
+    
+
     const vehicleBoard = vehicle.map((v, idx) => {
-        
+        // if (redirect) return <Redirect to={`/vehicles/edit/${v._id}`}/>
         return (
             
             <div key={idx}>
@@ -73,9 +86,12 @@ function Vehicles(props) {
                     {/* the model goes below this */}
                     {v.model}
                 </p>
+                {/* <p>
+                    {v._id}
+                </p> */}
                 <div className='side-by-side'>
-                    <ShowVehicle make={v.make} model={v.model} year={v.year}/>
-                    <button type='button' id='edit-vehicle-button' className='glow-on-hover'>Edit Vehicle</button>
+                    <ShowVehicle vehicle={v}/>
+                    <button type='button' id='edit-vehicle-button' className='glow-on-hover' onClick={() => handleClick(v._id)}>Edit Vehicle</button>
                 </div>
                 <br />
                 <br />

@@ -20,6 +20,7 @@ import JourneyOrRideForm from './components/JourneyOrRideReq';
 import JourneyDetails from './components/JourneyDetails';
 import Message from './components/MessageForm';
 // import AllMessages from './components/AllMessages';
+import VehicleEdit from './components/VehicleEdit';
 import JourneyEdit from './components/JourneyEdit';
 import Inbox from './components/Inbox';
 import ProfileEdit from './components/ProfileEdit';
@@ -87,6 +88,7 @@ function App() {
           <PrivateRoute path="/journeys/edit/:id" component={JourneyEdit} user={currentUser}  />
           <PrivateRoute path="/messages/user/635af2d66103bc41965b2160" component={Inbox} user={currentUser}  />
           <PrivateRoute path="/messages/new" component={Message} user={currentUser}  />
+          <PrivateRoute path="/vehicles/edit/:id" component={VehicleEdit} user={currentUser}/>   
           {/* <Route exact path="/messages" component={AllMessages} user={currentUser} /> */}
           <Route exact path="/" component={GoogleApiWrapper} />
           <Route path="/about" component={About} />
