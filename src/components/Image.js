@@ -12,6 +12,7 @@ const Images = () => {
  })
 
  const handleSubmit = (e) => {
+
     e.preventDefault();
     const file = state.profileImg;
     console.log(file);
@@ -22,6 +23,14 @@ const Images = () => {
         axios.post(`${REACT_APP_SERVER_URL}/images/new`, {file: reader.result})
     .then(res => {
         console.log(res);
+
+    e.target.preventDefault();
+    const formData = new FormData()
+    setState.profileImg(formData);
+    axios.post("http://localhost:3000/api/images/new", formData, {
+    }).then(res => {
+        console.log(res)
+
     })
        
     };
