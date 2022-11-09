@@ -4,8 +4,6 @@ import axios from 'axios';
 const Images = () => {
 
     // states
- const [onFileChange, setOnFileChange] = useState('');
- const [onSubmit, setOnSubmit] = useState('');
  const [state, setState] = useState({
     profileImg: ''
  })

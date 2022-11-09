@@ -19,7 +19,7 @@ const Profile = (props) => {
 
    const { id, firstName, lastName, birthdate, email, exp} = user;
    const [reviewsArr, setReviewsArr] = useState([]);
-   const [profilePic, setProfilePic] = useState([]);
+   const [profilePic, setProfilePic] = useState('');
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
 
@@ -29,12 +29,13 @@ const Profile = (props) => {
     .then(res => {
         console.log('RESPONSE', res.data);
         setReviewsArr(res.data.rev);
-        setProfilePic(res.data.photos[0]);
+        
+        localStorage.setItem('photoId', res.data.photos[0])
     }).catch(err => { console.log(err);
     });
   }, []);
 
-
+ 
 
 
    // make a condition that compares exp and current time
@@ -56,9 +57,6 @@ const Profile = (props) => {
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
        <div>
-
-        { <MessageForm userId={id}/> }
-        {/* { <Messages user={id} /> } */}
         <Vehicles user={id}/>
 
 
