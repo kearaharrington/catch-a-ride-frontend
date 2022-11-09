@@ -26,7 +26,7 @@ const Images = () => {
 
     e.target.preventDefault();
     const formData = new FormData()
-    setState.profileImg(formData);
+    formData.append('profileImg', state.profileImg)
     axios.post("http://localhost:3000/api/images/new", formData, {
     }).then(res => {
         console.log(res)
