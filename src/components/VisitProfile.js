@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MessageForm from './MessageForm';
+import ReviewsForm from './ReviewsForm';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
@@ -72,6 +72,7 @@ console.log('FOR T USER OUTSIDE USEEFFECT', tuser);
             <p>Email: {email}</p>
             <p>Birthday: {birthdate}</p>
             <p>ID: {id}</p>
+            <ReviewsForm userId={id}/>
              <Messages arr={reviewsArr} />
             <div></div>
             </div>

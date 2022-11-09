@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import MessageForm from './MessageForm';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
+import Images from './Image';
+import ImageContainer from './ImageContainer';
 const { REACT_APP_SERVER_URL } = process.env;
-
-// axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
-// .then(res => {
-//     console.log(res.data);
-//     // setReviewsArr(res.data);
-// })
 
 
 const Profile = (props) => {
    const { handleLogout, user } = props;
 
 
-   const { id, firstName, lastName, birthdate, email, exp, messages } = user;
+   const { id, firstName, lastName, birthdate, email, exp} = user;
    const [reviewsArr, setReviewsArr] = useState([]);
    const expirationTime = new Date(exp * 1000);
    let currentTime = Date.now();
+
   useEffect(() => {
     setAuthToken(localStorage.getItem('jwtToken'));
     axios.get(`${REACT_APP_SERVER_URL}/users/profile`)
     .then(res => {
         console.log('RESPONSE', res.data);
-        setReviewsArr(res.data.reviews);
+        setReviewsArr(res.data.rev);
     }).catch(err => { console.log(err);
     });
   }, []);
@@ -40,15 +36,15 @@ const Profile = (props) => {
    }
 
    const userData = user ?
-   (<div>
+   (<div className='profile-card'>
        <h1>Profile</h1>
+       <ImageContainer />
+       <Images />
        <p>Name: {firstName} {lastName}</p>
        <p>Email: {email}</p>
        <p>Birthday: {birthdate}</p>
        <p>ID: {id}</p>
-       <p>Messages: {messages}</p>
        <div>
-        <MessageForm userId={id}/>
 
         <Messages arr={reviewsArr} />
         
