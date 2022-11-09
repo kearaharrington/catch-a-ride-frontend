@@ -85,7 +85,7 @@ const Vehicle = (props) => {
     return (
         <div className="row mt-4">
         <div className="col-md-7 offset-md-3">
-            <div className="card card-body">
+            <div className="card card-body vehicle-body">
                 <h2 className="py-2">Add Vehicle</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="form-group">
