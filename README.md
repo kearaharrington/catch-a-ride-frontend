@@ -1,40 +1,21 @@
-# Setup
+# Catch A Ride (United States)
 
-Due to this project using an older package not fully supported on node17+ we'll need to run one initial command before we run our npm install. 
+Catch-A-Ride is an American online marketplace for carpooling. Our website connects drivers and passengers willing to travel together between cities at an agreed upon price.
 
-If you are on mac or linux, run the following command:
-
-```
-export NODE_OPTIONS=--openssl-legacy-provider
-```
-
-for windows users use one of these two commands:
-
-command prompt: 
-
-```
-set NODE_OPTIONS=--openssl-legacy-provider
-```
-
-powershell:
-
-```
-$env:NODE_OPTIONS = "--openssl-legacy-provider"
-```
 
 # MERN Authentication Frontend
 
 | Components | Links to Code | Description |
 | --- | --- | --- |
-| `App`| [`App`](https://github.com/calvickauer/mern-auth-frontend#app-component) | The component that manages the entire app |
+| `App`| [`App`](https://github.com/calvickauer/catch-a-ride-frontend#app-component) | The component that manages the entire app |
 | `Signup`| [`Signup`](https://github.com/calvickauer/catch-a-ride-frontend/blob/main/docs/signup.md) | Allow the user to signup |
-| `Login`| [`Login`](https://github.com/calvickauer/mern-auth-frontend/blob/main/docs/login.md) | Allows the user to login to the app |
-| `Navbar`| [`Navbar`](https://github.com/calvickauer/mern-auth-frontend/blob/main/docs/navbar.md) | Make `App` class component |
+| `Login`| [`Login`](https://github.com/calvickauer/catch-a-ride-frontend/blob/main/docs/login.md) | Allows the user to login to the app |
+| `Navbar`| [`Navbar`](https://github.com/calvickauer/catch-a-ride-frontend/blob/main/docs/navbar.md) | Make `App` class component |
 | `Profile`| [`Profile`](#) | A component that displays the user profile information |
-| `setAuthToken`| [`setAuthToken`](https://github.com/romebell/mern-auth-frontend/blob/main/docs/setAuthToken.md) | A utility function that adds a token to the `Authentication` header to manage current user |
-| `About`| [`About`](https://github.com/romebell/mern-auth-frontend/blob/main/docs/other-components.md#about) | A component that decribes the app |
-| `Footer`| [`Footer`](https://github.com/romebell/mern-auth-frontend/blob/main/docs/other-components.md#footer) | A footer that goes on each component |
-| `Welcome`| [`Welcome`](https://github.com/romebell/mern-auth-frontend/blob/main/docs/other-components.md#welcome) | A welcome page for the user |
+| `setAuthToken`| [`setAuthToken`](https://github.com/romebell/catch-a-ride-frontend/blob/main/docs/setAuthToken.md) | A utility function that adds a token to the `Authentication` header to manage current user |
+| `About`| [`About`](https://github.com/romebell/catch-a-ride-frontend/blob/main/docs/other-components.md#about) | A component that decribes the app |
+| `Footer`| [`Footer`](https://github.com/romebell/catch-a-ride-frontend/blob/main/docs/other-components.md#footer) | A footer that goes on each component |
+| `Welcome`| [`Welcome`](https://github.com/romebell/catch-a-ride-frontend/blob/main/docs/other-components.md#welcome) | A welcome page for the user |
 
 ### `App Component`
 
