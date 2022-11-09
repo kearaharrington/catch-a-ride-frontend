@@ -5,8 +5,6 @@ const { REACT_APP_SERVER_URL } = process.env;
 const Images = () => {
 
     // states
- const [onFileChange, setOnFileChange] = useState('');
- const [onSubmit, setOnSubmit] = useState('');
  const [state, setState] = useState({
     profileImg: ''
  })

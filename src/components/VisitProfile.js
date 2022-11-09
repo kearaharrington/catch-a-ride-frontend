@@ -4,6 +4,7 @@ import ReviewsForm from './ReviewsForm';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Messages from './Messages';
+import ImageContainer from './ImageContainer';
 
 import { Redirect, useParams } from 'react-router-dom';
 
@@ -15,6 +16,7 @@ const VisitProfile = () => {
     const [ tuser, setTuser ] = useState({});
     const { idx } = useParams();
     const [reviewsArr, setReviewsArr] = useState([]);
+    const [profilePic, setProfilePic] = useState([]);
     console.log('BIG CAPS HERE', idx);
     
 
@@ -25,13 +27,14 @@ const VisitProfile = () => {
                 console.log('THE USER', res.data);
                 setTuser(res.data);
                 setReviewsArr(res.data.rev);
+                setProfilePic(res.data.photos[0]);
                 console.log('TUSER CONSOLE LOG', tuser)
             }).catch(err => {
                 console.log(err);
             });
     }, [])
 console.log('FOR T USER OUTSIDE USEEFFECT', tuser);
-    const { id, firstName, lastName, birthdate, email, rev } = tuser;
+    const { id, firstName, lastName, birthdate, email, rev, photos } = tuser;
     
     // const expirationTime = new Date(exp * 1000);
     let currentTime = Date.now();
@@ -68,6 +71,7 @@ console.log('FOR T USER OUTSIDE USEEFFECT', tuser);
         // </div>
         <div>
         <h1>Profile</h1>
+            <ImageContainer photoId={profilePic} />
             <p>Name: {firstName} {lastName}</p>
             <p>Email: {email}</p>
             <p>Birthday: {birthdate}</p>
