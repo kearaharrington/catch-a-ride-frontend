@@ -3,7 +3,7 @@ import { Redirect, useParams } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 // import MessageForm from './MessageForm';
-const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 const JourneyDetails = () => {
