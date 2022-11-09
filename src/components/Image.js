@@ -21,12 +21,12 @@ const Images = () => {
 
        
     };
-    reader.readAsDataURL(file);
+    // reader.readAsDataURL(file);
 
 
   
 
- } 
+ 
 
  const handleFileChange = (e) => {
     setState({ profileImg: e.target.files[0] })
