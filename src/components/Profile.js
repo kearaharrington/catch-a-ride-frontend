@@ -24,13 +24,13 @@ const Profile = (props) => {
     .then(res => {
         console.log('RESPONSE', res.data);
         setReviewsArr(res.data.rev);
-        setProfilePic(res.data.photos[0]);
+        
         localStorage.setItem('photoId', res.data.photos[0])
     }).catch(err => { console.log(err);
     });
   }, []);
 
-
+ 
 
    // make a condition that compares exp and current time
    if (currentTime >= expirationTime) {
