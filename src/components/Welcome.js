@@ -149,12 +149,12 @@ export class MapContainer extends Component {
             </div>
           )}
         </PlacesAutocomplete>
-        <br />
+
         <div className='map-container'>
 
         <Map className="google-maps"
-          style={{ width: '40%',
-          height: '80%'}}
+          style={{ width: '100%',
+          height: '100%'}}
           google={this.props.google}
           initialCenter={{
             lat: this.state.mapCenter.lat,
