@@ -44,19 +44,19 @@ const Inbox = (props) => {
       {journeys.map((journey, index) => {
         return (
           <div key={index}>
-            <h2 jid={journey._id}>From: {journey.origin} To: {journey.destination}</h2>
+            <h2>From: {journey.origin} To: {journey.destination}</h2>
 
             {journey.messages.map((message, index) => {
               return (
-                <div key={index} uid={message.user[0]}>
+                <div key={index}>
+                  {console.log(message.user)}
                   <h4>Title: {message.title}</h4>
                   <p>Message: {message.content}</p>
-                  <p>From: {message.user.firstName}</p>
-                  <button onClick={acceptPassenger}>Accept Passenger</button>
+                  <p>From: {message.user[0].firstName} {message.user[0].lastName}</p>
+                  <button jid={journey._id} uid={message.user[0]} onClick={acceptPassenger}>Accept Passenger</button>
                 </div>
               );
             })}
-
             <hr />
           </div>
         );
