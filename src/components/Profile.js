@@ -9,12 +9,12 @@ import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
 import Images from './Image';
 import ImageContainer from './ImageContainer';
-const { REACT_APP_SERVER_URL } = process.env;
+const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
 
 const Profile = (props) => {
-   const { handleLogout, user } = props;
+    const { handleLogout, user } = props;
 
 
    const { id, firstName, lastName, birthdate, email, exp} = user;
@@ -38,14 +38,14 @@ const Profile = (props) => {
  
 
 
-   // make a condition that compares exp and current time
-   if (currentTime >= expirationTime) {
-       handleLogout();
-       alert('Session has ended. Please login to continue.');
-   }
+    // make a condition that compares exp and current time
+    if (currentTime >= expirationTime) {
+        handleLogout();
+        alert('Session has ended. Please login to continue.');
+    }
 
 
-    
+
 
    const userData = user ?
    (<div className='profile-card'>
@@ -75,7 +75,7 @@ const Profile = (props) => {
             </div>
         );
     };
-    
+
 
 
     return (
