@@ -29,8 +29,9 @@ const Profile = (props) => {
     .then(res => {
         console.log('RESPONSE', res.data);
         setReviewsArr(res.data.rev);
+        const reversed = res.data.photos.reverse();
         
-        localStorage.setItem('photoId', res.data.photos[0])
+        localStorage.setItem('photoId', reversed[0])
     }).catch(err => { console.log(err);
     });
   }, []);
