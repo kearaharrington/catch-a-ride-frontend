@@ -84,7 +84,7 @@ npm install
 
 <hr />
 
-## Credits
+## API's used
 
 * Third party API: 
 <br/>
