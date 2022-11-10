@@ -73,23 +73,19 @@ npm install
 
 <div align="center">
   <a href="https://github.com/Calvickauer">
-    <img src="https://i.imgur.com/td6nLst.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
     </a>
     <a href="https://github.com/kearaharrington">
-    <img src="https://i.imgur.com/Vwsw8Y2.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
   </a>
   </a>
     <a href="https://github.com/amoreno16003">
-    <img src="https://i.imgur.com/FMldvPj.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
   </a>
     <a href="https://github.com/Descotto">
-    <img src="https://i.imgur.com/Vwsw8Y2.jpg"
       alt="Contributors"
       width="15%" target="_blank"/> 
   </a>
