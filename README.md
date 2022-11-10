@@ -73,6 +73,7 @@ npm install
 
 <div align="center">
   <a href="https://github.com/Calvickauer">
+    <img src="https://i.imgur.com/ZLZ3EaT.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
     </a>
