@@ -87,13 +87,17 @@ body {
   
 }
 
+.journey-details{
+  color: white;
+}
+
 .profile-info{
-  background-color: aqua;
+  background-color: rgb(4, 242, 242, .8);
   color: black;
 }
 
 .vehicle-info{
-  background-color: rgb(0, 162, 162);
+  background-color: rgb(0, 162, 162, .7);
   color: black;
 }
 
@@ -115,9 +119,13 @@ body {
 }
 
 .aboutUs{
-  background-color: rgb(17, 97, 113);
+  background-color: rgba(110, 31, 31, 0.762);
   color: white;
   height:200px;
+  text-align: center;
+  box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
+  -webkit-box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
+  -moz-box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
 }
 
 .map-search {
