@@ -59,7 +59,7 @@ const Inbox = (props) => {
                         {/* {console.log(message.user)} */}
                         <h4>Title: {message.title}</h4>
                         <p>Message: {message.content}</p>
-                        <p>From: {message.user[0].firstName} {message.user[0].lastName}</p>
+                        <p>From: <a href={`http://localhost:3000/visit/${message.user[0]._id}`}>{message.user[0].firstName}  {message.user[0].lastName}</a></p>
                         <button jid={journey._id} uid={message.user[0]._id} onClick={acceptPassenger}>Accept Passenger</button>
                       </div>
                     </div>
