@@ -20,10 +20,10 @@ const Inbox = (props) => {
     fetchJourneys();
   }, []);
 
-  console.log(journeys);
+  console.log("JOURNEYS>>>>>>>>>>",journeys);
 
   const acceptPassenger = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const jid = e.target.getAttribute('jid');
     const uid = e.target.getAttribute('uid');
     setJourneyId(jid);
