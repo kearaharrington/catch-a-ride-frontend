@@ -87,6 +87,10 @@ body {
   
 }
 
+.journey-details{
+  color: white;
+}
+
 .profile-info{
   background-color: rgb(4, 242, 242, .8);
   color: black;

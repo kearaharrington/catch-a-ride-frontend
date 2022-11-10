@@ -32,10 +32,10 @@ const JourneyDetails = () => {
 
     if (journey) {
         return (
-            <div>
+            <div className='journey-details'>
                 <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
-                <p>Open Seats: {journey.openSeats}</p>
-                <p>Desired Contribution: {journey.contribution}</p>
+                <h5>Open Seats: {journey.openSeats}</h5>
+                <h5>Desired Contribution: {journey.contribution}</h5>
                 <button onClick={navEdit}>Edit Details</button>
                 {/* <MessageForm userId={id}/> */}
             </div>
