@@ -48,9 +48,12 @@ npm install
 
 <hr />
 
-## Wireframes
+## App Pictures
 
 * Home page of the app
+
+* Profile Page
+<img width="969" alt="Screen Shot 2022-11-09 at 4 09 33 PM" src="https://user-images.githubusercontent.com/106926062/200979557-bbc75088-00eb-4052-80be-a969dcba3ee9.png">
 
 
 
