@@ -115,9 +115,13 @@ body {
 }
 
 .aboutUs{
-  background-color: rgb(17, 97, 113);
+  background-color: rgba(110, 31, 31, 0.762);
   color: white;
   height:200px;
+  text-align: center;
+  box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
+  -webkit-box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
+  -moz-box-shadow: -1px 102px 400px 31px rgba(0,0,0,0.51);
 }
 
 .map-search {
