@@ -91,7 +91,7 @@ npm install
     <a href="https://github.com/Descotto">
     <img src="https://i.imgur.com/Vwsw8Y2.jpg"
       alt="Contributors"
-      width="15%" target="_blank"/>
+      width="15%" target="_blank"/> 
   </a>
 </div>
 
