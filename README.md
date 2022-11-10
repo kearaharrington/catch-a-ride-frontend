@@ -122,7 +122,23 @@ npm install
   </a>
 </div>
 
-# Catch A Ride Frontend
+# Catch A Ride Future Improvements:
+To Improve
+```
+- [ ] Mark journeys as complete/expired after the date passes
+- [ ] Add gender to User model
+- [ ] Filter search by driver gender
+- [ ] Search Journeys instead of displaying all
+- [ ] Mark messages read
+- [ ] Remove “accept passenger” button after it is clicked
+- [ ] Prevent a user from being added as a passenger twice
+- [ ] Prevent user from selecting a date in the past for their Journey/Ride Request
+- [ ] Add ability to get directions
+- [ ] Add ability to reply to messages
+- [ ] Display replies to messages
+- [ ] Alerts for new messages
+- [ ] Specify max passengers and mark journey full when max is reached
+```
 
 | Components | Links to Code | Description |
 | --- | --- | --- |
