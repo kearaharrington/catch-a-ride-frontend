@@ -72,26 +72,26 @@ npm install
 ## Developers 
 
 <div align="center">
+    <a href="https://github.com/Descotto">
+    <img src="https://i.imgur.com/Crnv0HA.jpg"
+      alt="Contributors"
+      width="15%" target="_blank"/> 
+  </a>
+    <a href="https://github.com/kearaharrington">
+    <img src="https://i.imgur.com/JVs443j.jpg"
+      alt="Contributors"
+      width="15%" target="_blank"/>
+  </a>
   <a href="https://github.com/Calvickauer">
-    <img src="https://i.imgur.com/ZLZ3EaT.jpg">
+    <img src="https://i.imgur.com/ZLZ3EaT.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
     </a>
-    <a href="https://github.com/kearaharrington">
-    <img src="https://i.imgur.com/JVs443j.jpg">
-      alt="Contributors"
-      width="15%" target="_blank"/>
-  </a>
   </a>
     <a href="https://github.com/amoreno16003">
-    <img src="https://i.imgur.com/ZLZ3EaT.jpg">
+    <img src="https://i.imgur.com/83FhrYR.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
-  </a>
-    <a href="https://github.com/Descotto">
-    <img src="https://i.imgur.com/ZLZ3EaT.jpg">
-      alt="Contributors"
-      width="15%" target="_blank"/> 
   </a>
 </div>
 
