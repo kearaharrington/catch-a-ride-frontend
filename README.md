@@ -5,7 +5,7 @@ Catch-A-Ride is an American online marketplace for carpooling. Our website conne
 
 # Catch A Ride App
 
-Visit Catch A Ride app website at: <a href=""> Catch-A-Ride App Link</a>
+Visit Catch A Ride app website at: <a href=""> Catch-A-Ride</a>
 <hr />
 
 ## Getting Started
@@ -36,9 +36,9 @@ npm install
 
 <hr />
 
-## ERD
+## WireFrame
+<img width="1239" alt="WireFrameP3" src="https://user-images.githubusercontent.com/106926062/200982556-15df1df5-28ba-486d-a072-e06e6c6a1c24.png">
 
-![ERD]()
 
 <hr />
 
