@@ -10,6 +10,7 @@ const Images = () => {
  })
 
  const handleSubmit = (e) => {
+    e.preventDefault();
     const file = state.profileImg;
     console.log(file);
     const reader = new FileReader();
