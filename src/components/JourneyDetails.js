@@ -23,36 +23,42 @@ const JourneyDetails = () => {
             setPassengerUids(result.data.journey.passengerUids);
         };
         fetchJourney();
-     }, []);
+    }, []);
 
-    const allPassengers = passengerUids.map((passenger,idx) => {
+    const allPassengers = passengerUids.map((passenger, idx) => {
         console.log(passenger);
         return (
             <li key={idx}>{passenger.firstName} {passenger.lastName}</li>
         )
     })
 
-     const navEdit = (e) => {
+    const navEdit = (e) => {
         setRedirect(true);
-     }
+    }
 
-    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`}/> // You can have them redirected to profile (your choice)
+    if (redirect) return <Redirect to={`/journeys/edit/${journey._id}`} /> // You can have them redirected to profile (your choice)
 
 
     if (journey) {
         return (
-            <div className='journey-details'>
-                <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
-                <p>Open Seats: {journey.openSeats}</p>
-                <p>Desired Contribution: {journey.contribution}</p>
-                <p>
-                Passengers:
-                </p>
-                <ul>
-                    {allPassengers}
-                </ul>      
-                <button onClick={navEdit}>Edit Details</button>
-                <MessageForm/>
+            <div>
+                <div className="row mt-4">
+                    <div className="col-md-7 offset-md-3">
+                        <div className="card card-body login">
+                            <h3>Your journey from {journey.origin} to {journey.destination} on {journey.date}</h3>
+                            <p>Open Seats: {journey.openSeats}</p>
+                            <p>Desired Contribution: {journey.contribution}</p>
+                            <p>
+                                Passengers:
+                            </p>
+                            <ul>
+                                {allPassengers}
+                            </ul>
+                            <button onClick={navEdit}>Edit Details</button>
+                        </div>
+                    </div>
+                </div>
+                <MessageForm />
             </div>
         );
     } else {
