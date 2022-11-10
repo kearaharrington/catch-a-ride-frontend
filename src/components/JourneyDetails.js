@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import axios from 'axios';
 import setAuthToken from '../utils/setAuthToken';
-// import MessageForm from './MessageForm';
+import MessageForm from './MessageForm';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 
@@ -46,15 +46,13 @@ const JourneyDetails = () => {
                 <p>Open Seats: {journey.openSeats}</p>
                 <p>Desired Contribution: {journey.contribution}</p>
                 <p>
-                    <div>Passengers:</div>
-                        <div>
-                            <ul>
-                                {allPassengers}
-                            </ul>
-                        </div>
+                Passengers:
                 </p>
+                <ul>
+                    {allPassengers}
+                </ul>      
                 <button onClick={navEdit}>Edit Details</button>
-                {/* <MessageForm userId={id}/> */}
+                <MessageForm/>
             </div>
         );
     } else {
