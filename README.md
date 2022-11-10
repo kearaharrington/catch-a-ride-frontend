@@ -5,7 +5,7 @@ Catch-A-Ride is an American online marketplace for carpooling. Our website conne
 
 # Catch A Ride App
 
-Visit Catch A Ride app website at: []
+Visit Catch A Ride app website at: <a href=""> Catch-A-Ride App Link</a>
 <hr />
 
 ## Getting Started
