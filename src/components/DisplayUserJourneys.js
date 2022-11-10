@@ -1,6 +1,7 @@
 import React, { useEffect, useState, Link } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
+import setAuthToken from '../utils/setAuthToken';
 const REACT_APP_SERVER_URL = process.env.REACT_APP_SERVER_URL;
 
 const DisplayUserJourneys = () => {
@@ -10,6 +11,7 @@ const DisplayUserJourneys = () => {
 
     useEffect(() => {
         const fetchJourneys = async () => {
+            setAuthToken(localStorage.getItem('jwtToken'));
             const result = await axios.get(`${REACT_APP_SERVER_URL}/journeys/mine`);
             console.log(result.data);
             setJourneys(result.data);
