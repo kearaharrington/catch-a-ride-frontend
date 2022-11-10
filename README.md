@@ -50,7 +50,8 @@ npm install
 
 ## App Pictures
 
-* Home page of the app
+* Map Search / Home Page
+<img width="782" alt="Screen Shot 2022-11-09 at 4 16 59 PM" src="https://user-images.githubusercontent.com/106926062/200979586-805639cc-d3fb-46e0-8c07-c484d3b1f4e6.png">
 
 * Profile Page
 <img width="969" alt="Screen Shot 2022-11-09 at 4 09 33 PM" src="https://user-images.githubusercontent.com/106926062/200979557-bbc75088-00eb-4052-80be-a969dcba3ee9.png">
@@ -69,8 +70,6 @@ npm install
 <img width="797" alt="Screen Shot 2022-11-09 at 4 16 39 PM" src="https://user-images.githubusercontent.com/106926062/200979579-cf23dba7-02f2-4c0a-bcc1-e7386505242f.png">
 
 
-* Map Search Page
-<img width="782" alt="Screen Shot 2022-11-09 at 4 16 59 PM" src="https://user-images.githubusercontent.com/106926062/200979586-805639cc-d3fb-46e0-8c07-c484d3b1f4e6.png">
 
 
 
