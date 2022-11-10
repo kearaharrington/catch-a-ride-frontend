@@ -72,16 +72,19 @@ npm install
 ## Developers 
 
 <div align="center">
+ <h3> David Escotto </h3>
     <a href="https://github.com/Descotto">
     <img src="https://i.imgur.com/Crnv0HA.jpg"
       alt="Contributors"
       width="15%" target="_blank"/> 
   </a>
+   <h3> Keara Harrington </h3>
     <a href="https://github.com/kearaharrington">
     <img src="https://i.imgur.com/JVs443j.jpg"
       alt="Contributors"
       width="15%" target="_blank"/>
   </a>
+   <h3> Calvin Moldenhauer </h3>
   <a href="https://github.com/Calvickauer">
     <img src="https://i.imgur.com/ZLZ3EaT.jpg"
       alt="Contributors"
