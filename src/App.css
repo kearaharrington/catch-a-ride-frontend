@@ -112,6 +112,16 @@ body {
   max-width: 200px;
 }
 
+.passengers-font{
+  color:rgb(2, 1, 1);
+  background-color: rgb(250, 248, 248, .5);
+}
+
+.journeys-font{
+  color:rgb(2, 1, 1);
+  background-color: rgb(250, 248, 248, .5);
+}
+
 /* .RRforms{
   background-color: blue;
 } */

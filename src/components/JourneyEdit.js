@@ -72,7 +72,7 @@ const JourneyEdit = () => {
     const allPassengers = passengerUids.map((passenger,idx) => {
         console.log(passenger);
         return (
-            <li key={idx}>{passenger.firstName} {passenger.lastName} <button pId={passenger._id} onClick={removePassenger}>Remove</button></li>
+            <li className='passengers-font' key={idx}>{passenger.firstName} {passenger.lastName} <button pId={passenger._id} onClick={removePassenger}>Remove</button></li>
             // <li key={idx}>{passenger.firstName} {passenger.lastName} <button name='pId' value={passenger._id} onClick={removePassenger}>Remove</button></li>
         )
     })
