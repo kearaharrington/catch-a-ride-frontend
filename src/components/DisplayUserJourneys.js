@@ -21,7 +21,7 @@ const DisplayUserJourneys = () => {
 
     if (journeys) {
         return (
-            <div>
+            <div className='journeys-font'>
                 <table className="table table-striped">
                     <thead>
                         <tr>

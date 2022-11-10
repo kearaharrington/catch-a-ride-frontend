@@ -20,10 +20,10 @@ const Inbox = (props) => {
     fetchJourneys();
   }, []);
 
-  console.log(journeys);
+  console.log("JOURNEYS>>>>>>>>>>",journeys);
 
   const acceptPassenger = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const jid = e.target.getAttribute('jid');
     const uid = e.target.getAttribute('uid');
     setJourneyId(jid);
@@ -60,7 +60,7 @@ const Inbox = (props) => {
                         <h4>Title: {message.title}</h4>
                         <p>Message: {message.content}</p>
                         <p>From: {message.user[0].firstName} {message.user[0].lastName}</p>
-                        <button jid={journey._id} uid={message.user[0]} onClick={acceptPassenger}>Accept Passenger</button>
+                        <button jid={journey._id} uid={message.user[0]._id} onClick={acceptPassenger}>Accept Passenger</button>
                       </div>
                     </div>
                   </div>
