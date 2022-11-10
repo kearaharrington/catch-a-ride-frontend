@@ -88,6 +88,7 @@ npm install
       width="15%" target="_blank"/>
     </a>
   </a>
+    <h3> Alejandro Moreno </h3>
     <a href="https://github.com/amoreno16003">
     <img src="https://i.imgur.com/83FhrYR.jpg"
       alt="Contributors"
