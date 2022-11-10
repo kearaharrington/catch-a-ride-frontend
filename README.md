@@ -53,32 +53,32 @@ npm install
 * Map Search / Home Page
 <img width="782" alt="Screen Shot 2022-11-09 at 4 16 59 PM" src="https://user-images.githubusercontent.com/106926062/200979586-805639cc-d3fb-46e0-8c07-c484d3b1f4e6.png">
 
-
+<br/>
 
 * Profile Page
 <img width="969" alt="Screen Shot 2022-11-09 at 4 09 33 PM" src="https://user-images.githubusercontent.com/106926062/200979557-bbc75088-00eb-4052-80be-a969dcba3ee9.png">
 
-
+<br/>
 
 * Add vehicle
 <img width="969" alt="Screen Shot 2022-11-09 at 4 13 00 PM" src="https://user-images.githubusercontent.com/106926062/200979564-5085bbc5-3e5a-4105-8a30-2f07d9dc3f67.png">
 
-
+<br/>
 
 * journey Form page
 <img width="797" alt="Screen Shot 2022-11-09 at 4 13 24 PM" src="https://user-images.githubusercontent.com/106926062/200979572-12beaf64-fe93-4169-9487-ee2166538507.png">
 
-
+<br/>
 
 * Request Form page
 <img width="797" alt="Screen Shot 2022-11-09 at 4 13 29 PM" src="https://user-images.githubusercontent.com/106926062/200979575-312db5c5-de82-4b3b-8a6c-7bfb00395c7b.png">
 
-
+<br/>
 
 * Journey Details page
 <img width="797" alt="Screen Shot 2022-11-09 at 4 16 39 PM" src="https://user-images.githubusercontent.com/106926062/200979579-cf23dba7-02f2-4c0a-bcc1-e7386505242f.png">
 
-
+<br/>
 
 
 
